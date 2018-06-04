@@ -1,0 +1,638 @@
+/* RESET CODE */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow-x: hidden;
+}
+
+div,
+form,
+label,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* FIN RESET CODE */
+
+span{
+    color: red;
+    text-decoration: red;
+    font-size: 10px;
+}
+
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-nav {
+    background-color: #2e2e2e !important;
+}
+
+.logo {
+    width: 150px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+.boton-search {
+    display: none;
+}
+
+.nav-item:hover {
+    background-color: black;
+}
+
+.login {
+    padding: 3px;
+    padding-left: 10px;
+}
+
+.login p {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    margin-bottom: 0px;
+    padding: 5px;
+}
+
+.login p:hover {
+    color: grey;
+}
+
+.errores {
+    color: red;
+    text-decoration: red;
+    font-size: 10px;
+}
+
+.banner {
+    flex: 1;
+}
+
+.contenido {
+    flex: 1;
+}
+
+.titulos {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.7em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.socialmedia {
+    margin-right: 15px;
+}
+
+.img-banner {
+    width: 100%;
+}
+
+a img .titulo-producto {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.nuevos {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulo-producto {
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    background-color: #2b2b2b;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+.titulo-producto:hover {
+    text-decoration: none;
+}
+
+.productos-nuevos {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.imgnuevo {
+    z-index: -10000;
+}
+
+.img-nuevo {
+    max-width: 100%;
+    transition: all 0.3s;
+    z-index: -10000;
+}
+
+.pdeproducto {
+    z-index: 10000;
+}
+
+.img-nuevo:hover {
+    transform: scale(1.1);
+}
+
+.custom-program {
+    margin-top: 10px;
+    background-color: #91e8e4;
+    max-width: 100%;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-text {
+    display: inline-block;
+}
+
+.custom-text p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.custom-text1 p {
+    font-size: 2.5em
+}
+
+.caja-destacados {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgdestacado {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-destacado {
+    max-width: 100%;
+}
+
+.titulo-destacado {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    background-color: #2b2b2b;
+    text-align: center;
+    width: 100%;
+}
+
+.destacados {
+    margin-right: 5px;
+}
+
+.destacados:last-child {
+    margin-right: 0px;
+}
+
+.pdestacado {
+    display: inline;
+}
+
+.footer {
+    margin-top: 5px;
+    background-color: #2b2b2b;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.user {
+    color: white;
+}
+
+.user:hover {
+    color: grey;
+}
+
+.socialmedia {
+    color: white;
+    padding: 10px 5px 10px 5px;
+    text-align: center;
+}
+
+.socialmedia:hover {
+    color: grey;
+}
+
+.texto-footer {
+    font-family: 'Open Sans', sans-serif;
+    color: grey;
+    text-align: center;
+    font-size: 0.8em
+}
+
+.somos {
+    display: flex;
+    margin-top: 5px;
+    flex: 1 0 auto;
+}
+
+.somosfoto {
+    max-width: 400px;
+}
+
+.textosomos p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em,
+}
+.faq {
+    margin-top: 10px;
+}
+
+.imagenfaq {
+    max-width: 100%;
+}
+
+.paginalogin {
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+    flex: 1 0 auto;
+}
+
+.paginaregistro {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex: 1 0 auto;
+}
+
+.ingreso {
+    /* width:25%; */
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-form p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    background-color: #2b2b2b;
+    text-align: center;
+    display: inline-block;
+    padding: 0 15px;
+    margin-bottom: 0px;
+}
+
+.registro {
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.registrarse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 45%;
+}
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+
+.input-registro {
+    margin-bottom: 10px;
+    text-align: left;
+    width: 60%;
+}
+
+.input-edit {
+    text-align: left;
+    width: 65%;
+}
+
+.boton-modificar {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    background-color: #2b2b2b;
+    text-align: center;
+    display: inline-block;
+    padding: 0 4px;
+    border:0;
+    width: 18%;
+}
+
+.boton-registrar {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    background-color: #2b2b2b;
+    text-align: center;
+    display: inline-block;
+    padding: 0 4px;
+    border:0;
+    width: 100%;
+}
+
+.boton-inicio {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    background-color: #2b2b2b;
+    text-align: center;
+    display: inline-block;
+    padding: 0 4px;
+    border:0;
+    width: 100%;
+    margin-top: 10px;
+}
+.input-email, .input-password {
+    width: 300px;
+}
+
+.boton-registrar:hover{
+    color: white;
+}
+
+.texto-registro {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    padding: 0 4px;
+}
+
+.div-form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4%;
+}
+
+.div-form-img img {
+    display: flex;
+    max-width: 100%;
+}
+
+.formulario {
+    border: 1px solid black;
+    padding: 8px;
+    width: 100%
+}
+
+.miperfil {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 8px;
+    display: flex;
+    width: 50%;
+}
+
+.link-modificar {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    background-color: #2b2b2b;
+    text-align: center;
+    display: inline-block;
+    padding: 0 4px;
+    border:0;
+    width: 29%
+}
+
+.div-for-botones{
+    display: flex;
+    justify-content: space-between;
+}
+
+.boton-volver{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    background-color: #2b2b2b;
+    text-align: center;
+    display: inline-block;
+    padding: 0 4px;
+    border:0;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.div-form-img{
+    margin-bottom: 1%;
+}
+
+.perfilusuarioo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+
+.textoyboton {
+    border: 1px solid black;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.boton-inicio {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    background-color: #2b2b2b;
+    text-align: center;
+    display: inline-block;
+    padding: 0 4px;
+    border:0;
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media (max-width: 992px) {
+    .active {
+        text-align: center;
+    }
+    .somos {
+        flex-direction: column;
+    }
+    .paginalogin {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+    }
+    .registro {
+        margin-top: 10px;
+        max-width: 100%;
+        width: 75%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+        margin-top: 0;  
+    }
+    .ingreso {
+        margin-top: 0;
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .registrarse {
+        width: 75%;
+    }
+    .input-email, .input-password {
+        width: 75%;
+    }
+    .perfilusuario{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .perfilusuario h1 {
+        font-size: 1.4em;
+    }
+    .miperfil{
+        width: 70%;
+    }
+    .boton-registrar{
+        width: 100%;
+    }
+    .boton-modificar{
+        width: 22%;
+        padding: 0 2px
+    }
+    .link-modificar {
+        width: 45%;
+        }
+}
+    @media (max-width: 576px) {
+        .titulos {
+            font-size: 1.2em;
+        }
+        .nuevos {
+            flex-direction: column;
+        }
+        .active {
+            text-align: center;
+        }
+        .custom-program P {
+            font-size: 1.3em;
+        }
+        .caja-destacados {
+            justify-content: center;
+            flex-direction: column;
+        }
+        .registro {
+            width: 100%;
+        }
+        .registrarse {
+            width: 100%;
+        }
+        .input-registro {
+        width: 99%;
+        }
+        .miperfil {
+        width: 100%;
+        }
+        .div-form {
+        flex-direction: column;
+        }
+        .input-edit {
+        width: 100%;
+        }
+        .input-email, .input-password {
+            width: 100%;
+        }
+        .boton-registrar {
+        width: 100%;
+        }
+        .boton-modificar{
+            width: 100%;
+        }
+        .link-modificar {
+        margin-top: 10px;
+        width: 100%;
+        }
+        .div-for-botones {
+        display: flex;
+        flex-direction: column; 
+        }
+        .ingreso {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+}

@@ -25,11 +25,14 @@ Route::get('/somos', function () {
     return view('somos');
 });
 
-
-Route::get('/login2', function () {
-    return view('login2');
+Route::get('/profile', function () {
+    return view('/profile');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
+Route::get('logout', function(){
+    Session::forget('key');
+    if(!Session::has('key'))
+    {
+        return 'signout';
+    }
 });

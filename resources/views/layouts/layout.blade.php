@@ -44,14 +44,17 @@
                             <button class="btn btn-outline-success my-2 my-sm-0 boton-search" type="submit">Search</button>
                         </form>
                         <div class="d-flex align-items-center">
-                                <a href="perfil.php" class="d-flex align-items-center login">
+                            @guest
+                                <a href="{{ route('login') }}" class="d-flex align-items-center login">
                                     <i class="far fa-user fa-lg user"></i>
-                                    <p>
-                                    </p>
+                                    <p>Login</p>
+                            @else
+                            <a href="{{ route('login') }}" class="d-flex align-items-center login">{{ Auth::user()->name }}
+                            @endguest
                                     <a href="cart.php">
                                         <i class="fas fa-shopping-cart user"></i>
                                     </a>
-                                </a>
+                            </a>
                         </div>
                 </div>
         </nav>

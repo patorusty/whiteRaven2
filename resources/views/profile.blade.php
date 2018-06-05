@@ -11,9 +11,11 @@
             <h1>Bienvenido User</h1>
             <img src="" style="max-width: 200px;">
         </div>
-            <a  class="boton-inicio"  href="modificar.php">EDITAR PERFIL</a>
-            
-            <a class="boton-inicio"  href="logout.php">CERRAR CESION</a>
+            <a  class="boton-inicio"  href="{{ route('login')}}">EDITAR PERFIL</a>
+            <form action="{{ route('logout') }}" method="POST">
+            <a class="boton-inicio"  href="{{ route('logout')}}">CERRAR CESION</a>
+            @csrf
+            </form>
             <br>
         </div>
 </div>

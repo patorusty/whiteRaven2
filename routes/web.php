@@ -29,10 +29,12 @@ Route::get('/profile', function () {
     return view('/profile');
 });
 
-Route::get('logout', function(){
-    Session::forget('key');
-    if(!Session::has('key'))
-    {
-        return 'signout';
-    }
-});
+// Route::get('logout', function(){
+//     Session::forget('key');
+//     if(!Session::has('key'))
+//     {
+//         return 'signout';
+//     }
+// });
+
+Route::get('logout', 'Auth/LoginController@logout');

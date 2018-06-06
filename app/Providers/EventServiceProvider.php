@@ -13,10 +13,10 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\Event' => [
-            'App\Listeners\EventListener',
-        ],
+        'App\Events\Event' => ['App\Listeners\EventListener',],
+        'Illuminate\Auth\Events\Logout' => ['App\Listeners\UpdateLastLoggedAtOnLogout',],
     ];
+
 
     /**
      * Register any events for your application.
@@ -29,4 +29,5 @@ class EventServiceProvider extends ServiceProvider
 
         //
     }
+
 }

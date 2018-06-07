@@ -17,24 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/faq', function () {
-    return view('faq');
-});
-Route::get('/somos', function () {
-    return view('somos');
-});
-
-Route::get('/profile', function () {
-    return view('/profile');
-});
-
-// Route::get('logout', function(){
-//     Session::forget('key');
-//     if(!Session::has('key'))
-//     {
-//         return 'signout';
-//     }
-// });
-
-Route::get('logout', 'Auth/LoginController@logout');
+Route::get('home', 'HomeController@index')->name('home');
+Route::get('somos', 'SomosController@index')->name('somos');
+Route::get('faq', 'FaqController@index')->name('faq');
+Route::get('profile', 'ProfileController@index')->name('profile');
+Route::get('contacto', 'ContactoController@index')->name('contacto');
+Route::get('logout', 'Auth\LoginController@logout');

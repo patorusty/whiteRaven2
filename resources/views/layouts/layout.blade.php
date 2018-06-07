@@ -15,7 +15,7 @@
 <body>
     <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark main-nav d-flex">
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="images/logo.png" alt="logo" class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -29,14 +29,14 @@
                                 <a class="nav-link" href="#">productos</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="somos.php">quienes somos</a>
+                                <a class="nav-link" href="{{ route('somos') }}">quienes somos</a>
                             </li>
 
                             <li class="nav-item active">
-                                <a class="nav-link" href="./faq.php">faq</a>
+                                <a class="nav-link" href="{{ route('faq') }}">faq</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">contacto</a>
+                            <a class="nav-link" href="{{ route('contacto')}}">contacto</a>
                             </li>
                         </ul>
                         <form class="form-inline my-2 my-lg-0">
@@ -49,7 +49,7 @@
                                     <i class="far fa-user fa-lg user"></i>
                                     <p>Login</p>
                             @else
-                            <a href="{{ route('home') }}" class="d-flex align-items-center login">{{ Auth::user()->name }}
+                            <a href="{{ route('profile') }}" class="d-flex align-items-center login">{{ Auth::user()->name }}
                             @endguest
                                     <a href="cart.php">
                                         <i class="fas fa-shopping-cart user"></i>

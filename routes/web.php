@@ -23,3 +23,11 @@ Route::get('faq', 'FaqController@index')->name('faq');
 Route::get('profile', 'ProfileController@index')->name('profile');
 Route::get('contacto', 'ContactoController@index')->name('contacto');
 Route::get('logout', 'Auth\LoginController@logout');
+Route::get('categories', 'CategoriesController@listado')->name('categories');
+Route::get('categories', 'CategoriesController@create');
+Route::post('categories', 'CategoriesController@store')->name('categories.add');
+Route::resource('products','ProductsController');
+Route::resource('brands','BrandsController');
+Route::get('admin', function(){
+    return view('admin');
+});

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
@@ -15,7 +16,13 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('products')->with('products', Product::All());
+        $products = Product::All();
+        $categories = Category::All();
+        $brands = Brand::All();
+        return view('products', 
+                    ['categories' => $categories, 
+                     'products' => $products,
+                     'brands' => $brands,]);
     }
 
     /**
@@ -36,20 +43,21 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $folder = 'fotoProducto';
+        // $folder = 'fotoProducto';
 
-        $path = $data['img']->storePublicly($folder);
+        // $path = $request['img']->storePublicly($folder);
 
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'category' => 'required',
             'brand' => 'required',
-            'price' => 'required|float',
+            'price' => 'required|integer',
             'stock' => 'required|integer',
             'description' => 'required|string|max:255',
-            'codigo' => 'required|integer|unique',
+            'codigo' => 'required|integer',
             'img' => 'required|image'
         ]);
+
 
         $product = Product::create([
             'name'=> $request->input('name'),
@@ -59,7 +67,7 @@ class ProductsController extends Controller
             'stock'=> $request->input('stock'),
             'description'=> $request->input('description'),
             'codigo'=> $request->input('codigo'),
-            'img' => $path
+            // 'img' => $path
         ]);
 
         $products = Product::All();

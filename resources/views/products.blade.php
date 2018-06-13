@@ -2,7 +2,7 @@
 @extends('layouts.layout')
 @section('content')
 
-<form id="products" name="products" method="POST" action="">
+<form id="products" name="products" method="POST" action="{{route('products.add')}}">
     {{ csrf_field() }}  
     <div>
         <label for="name">Nombre del Producto: </label>
@@ -11,13 +11,17 @@
     <div>
         <label for="category">Categoria: </label>
         <select name="category">
-    
+            @foreach ($categories->all() as $categoria)
+            <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
+            @endforeach
         </select>
     </div>
     <div>
         <label for="brand">Marca: </label>
         <select name="brand">
-    
+            @foreach ($brands->all() as $brand)
+            <option value= "{{ $brand->id }}">{{ $brand->name }}</option>
+            @endforeach
         </select>
     </div>
     <div>

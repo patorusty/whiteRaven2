@@ -19,8 +19,8 @@
             </tr>
             @foreach ($brands->all() as $brand)
             <tr>
-                <td> {{ $category->id }}</td>
-                <td> {{ $category->name }}</td>
+                <td> {{ $brands->id }}</td>
+                <td> {{ $brands->name }}</td>
                 <th><i class="fas fa-edit"></i></th>
                 <th><i class="fas fa-trash-alt"></i></th>
             </tr>

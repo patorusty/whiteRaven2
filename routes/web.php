@@ -27,5 +27,7 @@ Route::get('categories', 'CategoriesController@listado')->name('categories');
 Route::get('categories', 'CategoriesController@create');
 Route::post('categories', 'CategoriesController@store')->name('categories.add');
 Route::resource('products','ProductsController');
+Route::post('products', 'ProductsController@store')->name('products.add');
+
 Route::resource('brands','BrandsController');
 Route::resource('admin','AdminController');

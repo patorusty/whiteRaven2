@@ -28,6 +28,4 @@ Route::get('categories', 'CategoriesController@create');
 Route::post('categories', 'CategoriesController@store')->name('categories.add');
 Route::resource('products','ProductsController');
 Route::resource('brands','BrandsController');
-Route::get('admin', function(){
-    return view('admin');
-});
+Route::resource('admin','AdminController');

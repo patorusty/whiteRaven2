@@ -47,7 +47,7 @@ class BrandsController extends Controller
 
         $brands = Brand::All();
 
-        return redirect()->route('brands.add');
+        return redirect()->route('brands.store');
     }
 
     /**

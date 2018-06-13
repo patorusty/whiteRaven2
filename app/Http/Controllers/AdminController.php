@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\Brand;
+use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -14,7 +17,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $products = Product::All();
+        $categories = Category::All();
+        $brands = Brand::All();
+        return view('admin', 
+                    ['categories' => $categories, 
+                     'products' => $products,
+                     'brands' => $brands,]);
     }
 
     /**
@@ -24,8 +33,15 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::All();
+        $categories = Category::All();
+        $brands = Brand::All();
+        return view('products', 
+                    ['categories' => $categories, 
+                     'products' => $products,
+                     'brands' => $brands,]);
     }
+  
 
     /**
      * Store a newly created resource in storage.
@@ -33,9 +49,75 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeProducts(Request $request)
     {
-        //
+                // $folder = 'fotoProducto';
+
+        // $path = $request['img']->storePublicly($folder);
+
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'category' => 'required',
+            'brand' => 'required',
+            'price' => 'required|integer',
+            'stock' => 'required|integer',
+            'description' => 'required|string|max:255',
+            'codigo' => 'required|integer',
+            // 'img' => 'required|image'
+        ]);
+
+
+        $product = Product::create([
+            'name'=> $request->input('name'),
+            'category_id'=> $request->input('category'),
+            'brand_id'=> $request->input('brand'),
+            'price'=> $request->input('price'),
+            'stock'=> $request->input('stock'),
+            'description'=> $request->input('description'),
+            'codigo'=> $request->input('codigo'),
+            // 'img' => $path
+        ]);
+
+        $products = Product::All();
+
+        return redirect()->route('admin.products');
+    }
+
+
+
+
+    public function storeBrands(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $brand = Brand::create([
+            'name'=> $request->input('name'),
+        ]);
+
+        $brands = Brand::All();
+
+        return redirect()->route('admin.brands');
+    }
+ 
+
+    public function storeCategories(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'category' => 'required',
+        ]);
+
+        $category = Category::create([
+            'name'=> $request->input('name'),
+            'parent_id'=> $request->input('category'),
+        ]);
+
+        $categories = Category::All();
+
+        return redirect()->route('admin.categories');
+
     }
 
     /**

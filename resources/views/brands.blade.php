@@ -2,7 +2,7 @@
 @extends('layouts.layout')
 @section('content')
 
-<form id="brands" name="brands" method="POST" action="">
+<form id="brands" name="brands" method="POST" action="{{route('brands.store')}}">
     {{ csrf_field() }}  
 <div>
     <label for="name">Nombre de la Marca:</label>
@@ -16,11 +16,13 @@
             <tr>
               <th>Id</th>
               <th>Nombre de la Marca</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
             </tr>
             @foreach ($brands->all() as $brand)
             <tr>
-                <td> {{ $brands->id }}</td>
-                <td> {{ $brands->name }}</td>
+                <td> {{ $brand->id }}</td>
+                <td> {{ $brand->name }}</td>
                 <th><i class="fas fa-edit"></i></th>
                 <th><i class="fas fa-trash-alt"></i></th>
             </tr>

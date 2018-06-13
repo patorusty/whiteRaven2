@@ -32,7 +32,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('products');
+        return view('products')->with('products', Product::all());
     }
 
     /**
@@ -55,7 +55,7 @@ class ProductsController extends Controller
             'stock' => 'required|integer',
             'description' => 'required|string|max:255',
             'codigo' => 'required|integer',
-            'img' => 'required|image'
+            // 'img' => 'required|image'
         ]);
 
 

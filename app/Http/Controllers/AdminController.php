@@ -6,6 +6,7 @@ use App\Admin;
 use App\Brand;
 use App\Product;
 use App\Category;
+use App\SubCategory;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -19,10 +20,12 @@ class AdminController extends Controller
     {
         $products = Product::All();
         $categories = Category::All();
+        $subcategories = SubCategory::All();
         $brands = Brand::All();
         return view('admin', 
                     ['categories' => $categories, 
                      'products' => $products,
+                     'subcategories' => $subcategories,
                      'brands' => $brands,]);
     }
 
@@ -36,9 +39,11 @@ class AdminController extends Controller
         $products = Product::All();
         $categories = Category::All();
         $brands = Brand::All();
+        $subcategories = SubCategory::All();
         return view('products', 
                     ['categories' => $categories, 
                      'products' => $products,
+                     'subcategories' => $subcategories,
                      'brands' => $brands,]);
     }
   
@@ -80,7 +85,7 @@ class AdminController extends Controller
 
         $products = Product::All();
 
-        return redirect()->route('admin.products');
+        return redirect()->route('admin.index');
     }
 
 
@@ -98,11 +103,27 @@ class AdminController extends Controller
 
         $brands = Brand::All();
 
-        return redirect()->route('admin.brands');
+        return redirect()->route('admin.index');
     }
  
 
     public function storeCategories(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $category = Category::create([
+            'name'=> $request->input('name'),
+        ]);
+
+        $categories = Category::All();
+
+        return redirect()->route('admin.index');
+
+    }
+
+    public function storeSubCategories(Request $request)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -116,7 +137,7 @@ class AdminController extends Controller
 
         $categories = Category::All();
 
-        return redirect()->route('admin.categories');
+        return redirect()->route('admin.index');
 
     }
 

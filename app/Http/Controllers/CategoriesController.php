@@ -25,19 +25,6 @@ class CategoriesController extends Controller
 
     public function store(Request $request)
     {        
-        $this->validate($request, [
-            'name' => 'required',
-            'category' => 'required',
-        ]);
-
-        $category = Category::create([
-            'name'=> $request->input('name'),
-            'parent_id'=> $request->input('category'),
-        ]);
-
-        $categories = Category::All();
-
-        return redirect()->route('categories.add');
-
+     //
     }
 }

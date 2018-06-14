@@ -37,17 +37,7 @@ class BrandsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-        ]);
-
-        $brand = Brand::create([
-            'name'=> $request->input('name'),
-        ]);
-
-        $brands = Brand::All();
-
-        return redirect()->route('brands.store');
+        //
     }
 
     /**

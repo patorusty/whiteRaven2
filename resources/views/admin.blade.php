@@ -10,10 +10,12 @@
     </div>
     <div>
         <label for="category">Categoria: </label>
-        <select name="category">
-            @foreach ($categories->all() as $categoria)
-            <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
-            @endforeach
+        <select>
+                <optgroup label="Gorras">
+                        @foreach ($categories->all() as $categoria);
+                        <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
+                        @endforeach};
+                </optgroup>
         </select>
     </div>
     <div>
@@ -89,8 +91,7 @@
 <br>
 <h1>Crear Marca</h1>
 
-  <form id="brands" name="brands" method="POST" action="">
-        {{-- {{route('admin.brands')}} --}}
+  <form id="brands" name="brands" method="POST" action="{{route('admin.brands')}}">
     {{ csrf_field() }}  
 <div>
     <label for="name">Nombre de la Marca:</label>
@@ -126,8 +127,7 @@
 <br>
 <br>
 <h1>Crear Categoria</h1>
-<form id="categories" name="categories" method="POST" action="">
-        {{-- {{route('admin.categories')}} --}}
+<form id="categories" name="categories" method="POST" action="{{route('admin.categories')}}">
         {{ csrf_field() }}  
     <div>
         <label for="name">Nombre de la Categoria:</label>
@@ -165,6 +165,52 @@
 <br>
 <br>
 <br>
+-----------------------------------------------------------------------------------
+  
+<br>
+<br>
+<br>
+<h1>Crear Sub Categoria</h1>
+<form id="subcategories" name="subcategories" method="POST" action="{{route('admin.subcategories')}}">
+        {{ csrf_field() }}  
+    <div>
+        <label for="name">Nombre de la Sub Categoria:</label>
+        <input type="text" name="name" id="name"/>
+    </div>
+    <div>
+        <label for="category">Integra la categoria: </label>
+        <select name="category">
+            @foreach ($categories->all() as $categoria)
+            <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
+            @endforeach
+        </select>
+    </div>
+    <input type="submit" value="Crear Sub Categoria" name="submit"/>
+    </form>
+    <br>
+        <table class="egt" border=”1″>
+                <tr>
+                  <th>Id</th>
+                  <th>Nombre de Categoria</th>
+                  <th>Categoria Padre</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
+                </tr>
+                @foreach ($categories->all() as $category)
+                <tr>
+                    <td> {{ $category->id }}</td>
+                    <td> {{ $category->name }}</td>
+                    <td> {{ $category->parent_id }}</td>
+                    <th><i class="fas fa-edit"></i></th>
+                    <th><i class="fas fa-trash-alt"></i></th>
+                </tr>
+                @endforeach
+              </table>   
+<br>
+<br>
+<br>
+
+
 
 
 

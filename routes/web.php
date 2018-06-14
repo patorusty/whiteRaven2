@@ -23,14 +23,15 @@ Route::get('faq', 'FaqController@index')->name('faq');
 Route::get('profile', 'ProfileController@index')->name('profile');
 Route::get('contacto', 'ContactoController@index')->name('contacto');
 Route::get('logout', 'Auth\LoginController@logout');
-Route::get('categories', 'CategoriesController@listado')->name('categories');
-Route::get('categories', 'CategoriesController@create');
-Route::post('categories', 'CategoriesController@store')->name('categories.add');
 Route::resource('products','ProductsController');
-// Route::post('products', 'ProductsController@store')->name('products.add');
 
-Route::resource('brands','BrandsController');
-Route::resource('admin','AdminController');
-Route::post('admin', 'AdminController@storeProducts')->name('admin.products');
-Route::post('admin', 'AdminController@storeBrands')->name('admin.brands');
-Route::post('admin', 'AdminController@storeProducts')->name('admin.categories');
+
+// Rutas de Administacion 
+Route::group(['middleware' => 'admin'], function () {
+        Route::resource('admin','AdminController');
+        Route::post('admin/products', 'AdminController@storeProducts')->name('admin.products');
+        Route::post('admin/brands', 'AdminController@storeBrands')->name('admin.brands');
+        Route::post('admin/categories', 'AdminController@storeCategories')->name('admin.categories');
+        Route::post('admin/subcategories', 'AdminController@storeSubCategories')->name('admin.subcategories');
+});
+// Hasta aca!!

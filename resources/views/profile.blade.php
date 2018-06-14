@@ -8,7 +8,8 @@
         </div>
     <div class="miperfil">
         <div class="perfilusuario">
-            <h1>Bienvenido User</h1>
+            
+            <h1>Bienvenido {{ $users->name }} </h1>
             <img src="" style="max-width: 200px;">
         </div>
             <a  class="boton-inicio"  href="{{ route('login')}}">EDITAR PERFIL</a>
@@ -25,12 +26,3 @@
 
 
 
-
-{{-- 
-<script>
-    var url = document.URL;
-    history.pushState(null, null, document.URL);
-    window.addEventListener('popstate', function () {
-        history.pushState(null, null, url);
-    });
-</script> --}}

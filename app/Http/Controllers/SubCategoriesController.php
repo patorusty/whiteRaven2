@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Brand;
-use App\Product;
-use App\Category;
+use App\SubCategory;
 use Illuminate\Http\Request;
+use App\SubCategoryController;
 
-class ProductsController extends Controller
+class SubCategoryControllerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +15,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::All();
-        $categories = Category::All();
-        $brands = Brand::All();
-        return view('products', 
-                    ['categories' => $categories, 
-                     'products' => $products,
-                     'brands' => $brands,]);
+        return view('subcategory.index');
+
     }
 
     /**
@@ -32,7 +26,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('products')->with('products', Product::all());
+        return view('subcategories')->with('subcategories', SubCategory::all());
+
     }
 
     /**
@@ -49,10 +44,10 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\SubCategoryController  $subCategoryController
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(SubCategoryController $subCategoryController)
     {
         //
     }
@@ -60,10 +55,10 @@ class ProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\SubCategoryController  $subCategoryController
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(SubCategoryController $subCategoryController)
     {
         //
     }
@@ -72,10 +67,10 @@ class ProductsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\SubCategoryController  $subCategoryController
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, SubCategoryController $subCategoryController)
     {
         //
     }
@@ -83,10 +78,10 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\SubCategoryController  $subCategoryController
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(SubCategoryController $subCategoryController)
     {
         //
     }

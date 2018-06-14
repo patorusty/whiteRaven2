@@ -10,12 +10,18 @@
     </div>
     <div>
         <label for="category">Categoria: </label>
-        <select>
-                <optgroup label="Gorras">
-                        @foreach ($categories->all() as $categoria);
-                        <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
-                        @endforeach};
-                </optgroup>
+        <select name="category">
+                @foreach ($categories->all() as $categoria);
+                <option value= "{{ $categoria->name }}">{{ $categoria->name }}</option>
+                @endforeach};
+        </select>
+    </div>
+    <div>
+        <label for="subcategory">SubCategoria: </label>
+        <select name="subcategory">
+                @foreach ($subcategories->all() as $subcategoria);
+               <option value= "{{ $subcategoria->name }}">{{ $subcategoria->name }}</option>
+               @endforeach};
         </select>
     </div>
     <div>
@@ -57,6 +63,7 @@
       <th>Nombre</th>
       <th>Marca</th>
       <th>Categoria</th>
+      <th>SubCategoria</th>
       <th>Precio</th>
       <th>Stock</th>
       <th>Descripcion</th>
@@ -71,6 +78,7 @@
         <td> {{ $product->name }}</td>
         <td> {{ $product->brand_id }}</td>
         <td> {{ $product->category_id }}</td>
+        <td> {{ $product->subcategory_id }}</td>
         <td> {{ $product->price }}</td>
         <td> {{ $product->stock }}</td>
         <td> {{ $product->description }}</td>
@@ -133,14 +141,7 @@
         <label for="name">Nombre de la Categoria:</label>
         <input type="text" name="name" id="name"/>
     </div>
-    <div>
-        <label for="category">Integra la categoria: </label>
-        <select name="category">
-            @foreach ($categories->all() as $categoria)
-            <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
-            @endforeach
-        </select>
-    </div>
+
     <input type="submit" value="Crear Categoria" name="submit"/>
     </form>
     <br>
@@ -148,7 +149,6 @@
                 <tr>
                   <th>Id</th>
                   <th>Nombre de Categoria</th>
-                  <th>Categoria Padre</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
@@ -156,7 +156,6 @@
                 <tr>
                     <td> {{ $category->id }}</td>
                     <td> {{ $category->name }}</td>
-                    <td> {{ $category->parent_id }}</td>
                     <th><i class="fas fa-edit"></i></th>
                     <th><i class="fas fa-trash-alt"></i></th>
                 </tr>
@@ -181,7 +180,7 @@
         <label for="category">Integra la categoria: </label>
         <select name="category">
             @foreach ($categories->all() as $categoria)
-            <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
+            <option value= "{{ $categoria->name }}">{{ $categoria->name }}</option>
             @endforeach
         </select>
     </div>
@@ -191,7 +190,7 @@
         <table class="egt" border=”1″>
                 <tr>
                   <th>Id</th>
-                  <th>Nombre de Categoria</th>
+                  <th>Nombre de la SubCategoria</th>
                   <th>Categoria Padre</th>
                   <th>Editar</th>
                   <th>Eliminar</th>

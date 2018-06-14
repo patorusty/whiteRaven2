@@ -54,33 +54,38 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+    ////// STORE DE PRODCUTOS
     public function storeProducts(Request $request)
     {
-                // $folder = 'fotoProducto';
+        $folder = 'fotoproducto';
 
-        // $path = $request['img']->storePublicly($folder);
+        $path = $request['img']->storePublicly($folder);
 
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'category' => 'required',
+            'subcategory' => 'required',
             'brand' => 'required',
             'price' => 'required|integer',
             'stock' => 'required|integer',
             'description' => 'required|string|max:255',
             'codigo' => 'required|integer',
-            // 'img' => 'required|image'
+            'img' => 'required|image'
         ]);
 
 
         $product = Product::create([
             'name'=> $request->input('name'),
             'category_id'=> $request->input('category'),
+            'subcategory_id'=> $request->input('category'),
             'brand_id'=> $request->input('brand'),
             'price'=> $request->input('price'),
             'stock'=> $request->input('stock'),
             'description'=> $request->input('description'),
             'codigo'=> $request->input('codigo'),
-            // 'img' => $path
+            'img' => $path
         ]);
 
         $products = Product::All();
@@ -90,7 +95,7 @@ class AdminController extends Controller
 
 
 
-
+// STORE DE BRANDS!!!!
     public function storeBrands(Request $request)
     {
         $this->validate($request, [
@@ -106,6 +111,7 @@ class AdminController extends Controller
         return redirect()->route('admin.index');
     }
  
+// STORE DE CATEGORIES!!!!
 
     public function storeCategories(Request $request)
     {
@@ -123,6 +129,9 @@ class AdminController extends Controller
 
     }
 
+
+    // STORE DE SUBCATEGORIES!!!!
+
     public function storeSubCategories(Request $request)
     {
         $this->validate($request, [
@@ -130,12 +139,12 @@ class AdminController extends Controller
             'category' => 'required',
         ]);
 
-        $category = Category::create([
+        $category = SubCategory::create([
             'name'=> $request->input('name'),
             'parent_id'=> $request->input('category'),
         ]);
 
-        $categories = Category::All();
+        $categories = SubCategory::All();
 
         return redirect()->route('admin.index');
 

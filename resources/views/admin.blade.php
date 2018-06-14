@@ -196,11 +196,11 @@
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
-                @foreach ($categories->all() as $category)
+                @foreach ($subcategories->all() as $subcategory)
                 <tr>
-                    <td> {{ $category->id }}</td>
-                    <td> {{ $category->name }}</td>
-                    <td> {{ $category->parent_id }}</td>
+                    <td> {{ $subcategory->id }}</td>
+                    <td> {{ $subcategory->name }}</td>
+                    <td> {{ $subcategory->parent_id }}</td>
                     <th><i class="fas fa-edit"></i></th>
                     <th><i class="fas fa-trash-alt"></i></th>
                 </tr>

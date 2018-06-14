@@ -302,6 +302,10 @@ a:hover {
     flex: 1 0 auto;
 }
 
+.textoerror {
+    display: block;
+}
+
 .paginaregistro {
     margin-top: 5px;
     display: flex;

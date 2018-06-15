@@ -3,7 +3,7 @@
 @section('content')
 <h1>Crear Producto</h1>
 
-<form id="products" name="products" method="POST" action="{{route('admin.products')}}">
+<form id="products" name="products" method="POST" action="{{route('admin.products')}}" enctype="multipart/form-data">
     {{ csrf_field() }}  
     <div class="form-group row">
         <label for="name" class="col-3 col-form-label">Nombre del Producto:</label>

@@ -59,9 +59,9 @@ class AdminController extends Controller
     ////// STORE DE PRODCUTOS
     public function storeProducts(Request $request)
     {
-        // $folder = 'fotoproducto';
+        $folder = 'fotoproducto';
 
-        // $path = $request['img']->storePublicly($folder);
+        $path = $request['img']->storePublicly($folder);
         
         //Codigo para verificar el checkbox!
         if ($request['favourite'] == 1) {
@@ -70,7 +70,6 @@ class AdminController extends Controller
            $favourite = "No";
         }
         //
-
 
         $this->validate($request, [
             'name' => 'required|string|max:255',
@@ -82,7 +81,7 @@ class AdminController extends Controller
             'favourite' => 'string',
             'description' => 'required|string|max:255',
             'codigo' => 'required|integer',
-            // 'img' => 'required|image'
+            'img' => 'required|image'
         ]);
 
 
@@ -96,7 +95,7 @@ class AdminController extends Controller
             'favourite'=> $favourite,
             'description'=> $request->input('description'),
             'codigo'=> $request->input('codigo'),
-            // 'img' => $path
+            'img' => $path
         ]);
 
         $products = Product::All();

@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', 'Preguntas Frecuentes')
 @section('content')
 <div class="faq">
     <div class="faqtexto">

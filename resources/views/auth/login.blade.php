@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', 'Ingreso')
 @section('content')
 
 <div class="paginalogin">

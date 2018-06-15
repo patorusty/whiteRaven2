@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', 'Quienes Somos')
 @section('content')
 <div class="somos">
     <div class= "textosomos">

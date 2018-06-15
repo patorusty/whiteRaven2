@@ -36,7 +36,7 @@
             <div class="col-4">
         <select name="brand">
             @foreach ($brands->all() as $brand)
-            <option value= "{{ $brand->id }}">{{ $brand->name }}</option>
+            <option value= "{{ $brand->name }}">{{ $brand->name }}</option>
             @endforeach
         </select>
     </div>
@@ -64,11 +64,33 @@
         <div class="col-4">
         <textarea class="form-control" id="description" rows="3" cols="2"></textarea>
     </div>
+<<<<<<< HEAD
 </div>
     <div class="form-group row">
         <label for="avatar" class="col-3 col-form-label col-xs-12">Avatar:</label>
             <div class="col-4">
         <input type="file" name="img">
+=======
+    <div>
+        <label for="name">Producto Destacado: </label>
+        <input type='checkbox' name='favourite' id='favourite' value=1 />
+    </div>
+    <div class="div-form">
+        <label for="avatar">Foto 1:</label><br>
+        <input type="file" name="img1"><br>
+    </div>
+    <div class="div-form">
+        <label for="avatar">Foto 2:</label><br>
+        <input type="file" name="img2"><br>
+    </div>
+    <div class="div-form">
+        <label for="avatar">Foto 3:</label><br>
+        <input type="file" name="img3"><br>
+    </div>
+    <div class="div-form">
+        <label for="avatar">Foto 4:</label><br>
+        <input type="file" name="img4"><br>
+>>>>>>> 674a15cbf3837f338cbacfdff9b942f8e132a4fc
     </div>
 </div>
 
@@ -82,6 +104,7 @@
 <table class="egt table table-striped table-hover" border=”1″>
         <thead class="thead-dark">
     <tr>
+<<<<<<< HEAD
         <th scope="col">Id</th>
         <th scope="col">Codigo</th>
         <th scope="col">Nombre</th>
@@ -94,12 +117,25 @@
         <th scope="col">Imagen</th>
         <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
+=======
+      <th>Codigo Prod.</th>
+      <th>Nombre</th>
+      <th>Marca</th>
+      <th>Categoria</th>
+      <th>SubCategoria</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Descripcion</th>
+      <th>Destacado</th>
+      <th>Imagen</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+>>>>>>> 674a15cbf3837f338cbacfdff9b942f8e132a4fc
     </tr>
     </thead>
     <tbody>
     @foreach ($products->all() as $product)
     <tr>
-        <td> {{ $product->id }}</td>
         <td> {{ $product->codigo }}</td>
         <td> {{ $product->name }}</td>
         <td> {{ $product->brand_id }}</td>
@@ -108,6 +144,7 @@
         <td> {{ $product->price }}</td>
         <td> {{ $product->stock }}</td>
         <td> {{ $product->description }}</td>
+        <td> {{ $product->favourite }}</td>
         <td> <img src="{{ $product->img }}" style="max-width: 200px;"></td>
         <th><i class="fas fa-edit"></i></th>
         <th><i class="fas fa-trash-alt"></i></th>
@@ -137,15 +174,20 @@
     <table class="egt table table-striped table-hover" border=”1″>
         <thead class="thead-dark">
             <tr>
+<<<<<<< HEAD
                 <th scope="col">Id</th>
                 <th scope="col">Nombre de la Marca</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
+=======
+                <th>Nombre de la Marca</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+>>>>>>> 674a15cbf3837f338cbacfdff9b942f8e132a4fc
             </tr>
         </thead>
             @foreach ($brands->all() as $brand)
             <tr>
-                <td> {{ $brand->id }}</td>
                 <td> {{ $brand->name }}</td>
                 <th><i class="fas fa-edit"></i></th>
                 <th><i class="fas fa-trash-alt"></i></th>
@@ -170,6 +212,7 @@
     </form>
     <div><hr></div>
     <br>
+<<<<<<< HEAD
         <table class="egt table table-striped table-hover" border=”1″>
             <thead class="thead-dark">
             <tr>
@@ -179,9 +222,16 @@
                 <th scope="col">Eliminar</th>
             </tr>
             </thead>
+=======
+        <table class="egt" border=”1″>
+                <tr>
+                  <th>Nombre de Categoria</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
+                </tr>
+>>>>>>> 674a15cbf3837f338cbacfdff9b942f8e132a4fc
                 @foreach ($categories->all() as $category)
                 <tr>
-                    <td> {{ $category->id }}</td>
                     <td> {{ $category->name }}</td>
                     <th><i class="fas fa-edit"></i></th>
                     <th><i class="fas fa-trash-alt"></i></th>

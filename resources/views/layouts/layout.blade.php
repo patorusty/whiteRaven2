@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/styles.css">
-    <title>White Raven</title>
+    <title>White Raven - @yield('title')</title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse burger" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">productos</a>
+                                <a class="nav-link" href="{{ route('products.index') }}">productos</a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ route('somos') }}">quienes somos</a>

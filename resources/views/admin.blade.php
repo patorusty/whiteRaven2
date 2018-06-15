@@ -69,7 +69,7 @@
 <div class="form-group row">
         <label for="description" class="col-3 col-form-label">Descripcion:</label>
         <div class="col-4">
-        <textarea class="form-control" id="description" rows="3" cols="2"></textarea>
+        <textarea class="form-control" id="description" name="description" rows="3" cols="2"></textarea>
     </div>
 </div>
     <div class="form-group row">

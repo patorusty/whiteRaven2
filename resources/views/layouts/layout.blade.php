@@ -43,6 +43,11 @@
                             <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0 boton-search" type="submit">Search</button>
                         </form>
+                            @if (auth()->check() && auth()->user()->is_admin){
+                            <div class="d-flex align-items-center">
+                                    <a href="{{ route('admin.index') }}" class="d-flex align-items-center login">
+                                        <p>Admin</p>
+                            </div>  @else  <div> </div> @endif
                         <div class="d-flex align-items-center">
                             @guest
                                 <a href="{{ route('login') }}" class="d-flex align-items-center login">
@@ -56,6 +61,8 @@
                                     </a>
                             </a>
                         </div>
+
+
                 </div>
         </nav>
 @yield('content')

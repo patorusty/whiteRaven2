@@ -54,7 +54,7 @@
                                     <i class="far fa-user fa-lg user"></i>
                                     <p>Login</p>
                             @else
-                            <a href="{{ route('profile') }}" class="d-flex align-items-center login">{{ Auth::user()->name }}
+                            <a href="{{ route('profile') }}" class="d-flex align-items-center login user">{{ Auth::user()->name }}
                             @endguest
                                     <a href="cart.php">
                                         <i class="fas fa-shopping-cart user"></i>

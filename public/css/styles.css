@@ -83,6 +83,10 @@ span{
     color: white;
 }
 
+.login :hover {
+    color: grey;
+}
+
 .login p {
     font-family: 'Open Sans', sans-serif;
     color: white;

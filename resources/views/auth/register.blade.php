@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', 'Registro')
 @section('content')
 
 <div class="paginaregistro">

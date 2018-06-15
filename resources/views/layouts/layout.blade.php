@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/styles.css">
-    <title>White Raven</title>
+    <title>White Raven - @yield('title')</title>
 </head>
 
 <body>

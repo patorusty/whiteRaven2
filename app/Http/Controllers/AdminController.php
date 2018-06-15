@@ -110,11 +110,6 @@ class AdminController extends Controller
 
         return redirect()->route('admin.index');
     }
-<<<<<<< HEAD
-=======
- 
-// STORE DE CATEGORIES!!!!
->>>>>>> 5c028f5b37e50ae27a694dc67895e1400861891c
 
     public function storeCategories(Request $request)
     {

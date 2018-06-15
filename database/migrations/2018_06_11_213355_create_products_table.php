@@ -17,12 +17,13 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->integer('codigo')->unique();
             $table->string('name');
-            $table->integer('brand_id');
-            $table->integer('category_id');
+            $table->string('brand_id');
+            $table->string('category_id');
             $table->float('price');
             $table->integer('stock');
             $table->string('img');
             $table->string('description');
+            $table->string('favourite');
             $table->timestamps();
         });
     }

@@ -28,7 +28,7 @@
         <label for="brand">Marca: </label>
         <select name="brand">
             @foreach ($brands->all() as $brand)
-            <option value= "{{ $brand->id }}">{{ $brand->name }}</option>
+            <option value= "{{ $brand->name }}">{{ $brand->name }}</option>
             @endforeach
         </select>
     </div>
@@ -48,9 +48,25 @@
         <label for="name">Descripcion: </label>
         <input type="textarea" name="description" id="description"/>
     </div>
+    <div>
+        <label for="name">Producto Destacado: </label>
+        <input type='checkbox' name='favourite' id='favourite' value=1 />
+    </div>
     <div class="div-form">
-        <label for="avatar">Avatar:</label><br>
-        <input type="file" name="img"><br>
+        <label for="avatar">Foto 1:</label><br>
+        <input type="file" name="img1"><br>
+    </div>
+    <div class="div-form">
+        <label for="avatar">Foto 2:</label><br>
+        <input type="file" name="img2"><br>
+    </div>
+    <div class="div-form">
+        <label for="avatar">Foto 3:</label><br>
+        <input type="file" name="img3"><br>
+    </div>
+    <div class="div-form">
+        <label for="avatar">Foto 4:</label><br>
+        <input type="file" name="img4"><br>
     </div>
     <input type="submit" value="Crear Producto" name="submit"/>
 </form>
@@ -58,8 +74,7 @@
 
 <table class="egt" border=”1″>
     <tr>
-      <th>Id</th>
-      <th>Codigo</th>
+      <th>Codigo Prod.</th>
       <th>Nombre</th>
       <th>Marca</th>
       <th>Categoria</th>
@@ -67,13 +82,13 @@
       <th>Precio</th>
       <th>Stock</th>
       <th>Descripcion</th>
+      <th>Destacado</th>
       <th>Imagen</th>
       <th>Editar</th>
       <th>Eliminar</th>
     </tr>
     @foreach ($products->all() as $product)
     <tr>
-        <td> {{ $product->id }}</td>
         <td> {{ $product->codigo }}</td>
         <td> {{ $product->name }}</td>
         <td> {{ $product->brand_id }}</td>
@@ -82,6 +97,7 @@
         <td> {{ $product->price }}</td>
         <td> {{ $product->stock }}</td>
         <td> {{ $product->description }}</td>
+        <td> {{ $product->favourite }}</td>
         <td> <img src="{{ $product->img }}" style="max-width: 200px;"></td>
         <th><i class="fas fa-edit"></i></th>
         <th><i class="fas fa-trash-alt"></i></th>
@@ -111,14 +127,12 @@
 <br>
     <table class="egt" border=”1″>
             <tr>
-                <th>Id</th>
                 <th>Nombre de la Marca</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
             @foreach ($brands->all() as $brand)
             <tr>
-                <td> {{ $brand->id }}</td>
                 <td> {{ $brand->name }}</td>
                 <th><i class="fas fa-edit"></i></th>
                 <th><i class="fas fa-trash-alt"></i></th>
@@ -147,14 +161,12 @@
     <br>
         <table class="egt" border=”1″>
                 <tr>
-                  <th>Id</th>
                   <th>Nombre de Categoria</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
                 @foreach ($categories->all() as $category)
                 <tr>
-                    <td> {{ $category->id }}</td>
                     <td> {{ $category->name }}</td>
                     <th><i class="fas fa-edit"></i></th>
                     <th><i class="fas fa-trash-alt"></i></th>

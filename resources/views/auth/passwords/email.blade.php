@@ -1,13 +1,7 @@
 @extends('layouts.layout')
-
 @section('content')
-<div class="paginalogin">
 
-    <div class="ingreso">
-        <div class="titulo-form">
-            <p>RESET PASSWORD</p>
-        </div>
-        <div class="formulario">
+ 
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf                
                 <div class="div-form">
@@ -29,7 +23,6 @@
                     </div>
                 </div>
             </form>
-        </div>
-    </div>
-</div>
+    
+    
 @endsection

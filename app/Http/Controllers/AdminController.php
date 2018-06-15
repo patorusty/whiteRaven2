@@ -62,7 +62,7 @@ class AdminController extends Controller
         // $folder = 'fotoproducto';
 
         // $path = $request['img']->storePublicly($folder);
-
+        
         //Codigo para verificar el checkbox!
         if ($request['favourite'] == 1) {
             $favourite = "Si"; 

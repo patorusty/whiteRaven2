@@ -61,6 +61,12 @@
     </div>
 </div>
 <div class="form-group row">
+    <label class="col-3 col-form-label" for="defaultCheck1">Favoritos</label>
+    <div class="col-4">
+    <input class="" type="checkbox" value=1 name="favourite" id="defaultCheck1">
+    </div>
+</div>
+<div class="form-group row">
         <label for="description" class="col-3 col-form-label">Descripcion:</label>
         <div class="col-4">
         <textarea class="form-control" id="description" rows="3" cols="2"></textarea>
@@ -181,7 +187,7 @@
                 <tr>
                     <td> {{ $category->name }}</td>
                     <th><i class="fas fa-edit"></i></th>
-                    <th><i class="fas fa-trash-alt"></i></th>
+                    <th><form action=""><i class="fas fa-trash-alt"></i></form></th>
                 </tr>
                 @endforeach
         </table>   
@@ -231,8 +237,6 @@
 <br>
 <br>
 <br>
-
-
 
 
 

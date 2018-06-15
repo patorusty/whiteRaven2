@@ -79,6 +79,8 @@ span{
 .login {
     padding: 3px;
     padding-left: 10px;
+    text-decoration: none;
+    color: white;
 }
 
 .login p {

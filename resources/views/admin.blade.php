@@ -1,17 +1,18 @@
 @extends('layouts.layout')
+@section('title','Admin')
 @section('content')
 <h1>Crear Producto</h1>
 
 <form id="products" name="products" method="POST" action="{{route('admin.products')}}">
     {{ csrf_field() }}  
     <div class="form-group row">
-        <label for="name" class="col-3 col-form-label">Nombre del Producto: </label>
+        <label for="name" class="col-3 col-form-label">Nombre del Producto:</label>
         <div class="col-4">
         <input type="text" class="form-control" name="name" id="name"/>
     </div>
     </div>
     <div class="form-group row">
-        <label for="category" class="col-3 col-form-label">Categoria: </label>
+        <label for="category" class="col-3 col-form-label">Categoria:</label>
         <div class="col-4">
         <select name="category">
                 @foreach ($categories->all() as $categoria);
@@ -64,33 +65,11 @@
         <div class="col-4">
         <textarea class="form-control" id="description" rows="3" cols="2"></textarea>
     </div>
-<<<<<<< HEAD
 </div>
     <div class="form-group row">
         <label for="avatar" class="col-3 col-form-label col-xs-12">Avatar:</label>
             <div class="col-4">
         <input type="file" name="img">
-=======
-    <div>
-        <label for="name">Producto Destacado: </label>
-        <input type='checkbox' name='favourite' id='favourite' value=1 />
-    </div>
-    <div class="div-form">
-        <label for="avatar">Foto 1:</label><br>
-        <input type="file" name="img1"><br>
-    </div>
-    <div class="div-form">
-        <label for="avatar">Foto 2:</label><br>
-        <input type="file" name="img2"><br>
-    </div>
-    <div class="div-form">
-        <label for="avatar">Foto 3:</label><br>
-        <input type="file" name="img3"><br>
-    </div>
-    <div class="div-form">
-        <label for="avatar">Foto 4:</label><br>
-        <input type="file" name="img4"><br>
->>>>>>> 674a15cbf3837f338cbacfdff9b942f8e132a4fc
     </div>
 </div>
 
@@ -104,8 +83,6 @@
 <table class="egt table table-striped table-hover" border=”1″>
         <thead class="thead-dark">
     <tr>
-<<<<<<< HEAD
-        <th scope="col">Id</th>
         <th scope="col">Codigo</th>
         <th scope="col">Nombre</th>
         <th scope="col">Marca</th>
@@ -114,23 +91,10 @@
         <th scope="col">Precio</th>
         <th scope="col">Stock</th>
         <th scope="col">Descripcion</th>
+        <th scope="col">Favorito</th>
         <th scope="col">Imagen</th>
         <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
-=======
-      <th>Codigo Prod.</th>
-      <th>Nombre</th>
-      <th>Marca</th>
-      <th>Categoria</th>
-      <th>SubCategoria</th>
-      <th>Precio</th>
-      <th>Stock</th>
-      <th>Descripcion</th>
-      <th>Destacado</th>
-      <th>Imagen</th>
-      <th>Editar</th>
-      <th>Eliminar</th>
->>>>>>> 674a15cbf3837f338cbacfdff9b942f8e132a4fc
     </tr>
     </thead>
     <tbody>
@@ -174,16 +138,9 @@
     <table class="egt table table-striped table-hover" border=”1″>
         <thead class="thead-dark">
             <tr>
-<<<<<<< HEAD
-                <th scope="col">Id</th>
                 <th scope="col">Nombre de la Marca</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
-=======
-                <th>Nombre de la Marca</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
->>>>>>> 674a15cbf3837f338cbacfdff9b942f8e132a4fc
             </tr>
         </thead>
             @foreach ($brands->all() as $brand)
@@ -212,24 +169,14 @@
     </form>
     <div><hr></div>
     <br>
-<<<<<<< HEAD
         <table class="egt table table-striped table-hover" border=”1″>
             <thead class="thead-dark">
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Nombre de Categoria</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
             </tr>
             </thead>
-=======
-        <table class="egt" border=”1″>
-                <tr>
-                  <th>Nombre de Categoria</th>
-                  <th>Editar</th>
-                  <th>Eliminar</th>
-                </tr>
->>>>>>> 674a15cbf3837f338cbacfdff9b942f8e132a4fc
                 @foreach ($categories->all() as $category)
                 <tr>
                     <td> {{ $category->name }}</td>
@@ -266,7 +213,6 @@
         <table class="egt table table-striped table-hover" border=”1″>
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Nombre de la SubCategoria</th>
                     <th scope="col">Categoria Padre</th>
                     <th scope="col">Editar</th>
@@ -275,7 +221,6 @@
             </thead>
                 @foreach ($subcategories->all() as $subcategory)
                 <tr>
-                    <td> {{ $subcategory->id }}</td>
                     <td> {{ $subcategory->name }}</td>
                     <td> {{ $subcategory->parent_id }}</td>
                     <th><i class="fas fa-edit"></i></th>

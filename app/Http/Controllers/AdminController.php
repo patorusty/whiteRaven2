@@ -22,11 +22,11 @@ class AdminController extends Controller
         $categories = Category::All();
         $subcategories = SubCategory::All();
         $brands = Brand::All();
-        return view('admin', 
-                    ['categories' => $categories, 
-                     'products' => $products,
-                     'subcategories' => $subcategories,
-                     'brands' => $brands,]);
+            return view('admin', 
+                        ['categories' => $categories, 
+                        'products' => $products,
+                        'subcategories' => $subcategories,
+                        'brands' => $brands,]);
     }
 
     /**
@@ -40,13 +40,13 @@ class AdminController extends Controller
         $categories = Category::All();
         $brands = Brand::All();
         $subcategories = SubCategory::All();
-        return view('products', 
-                    ['categories' => $categories, 
-                     'products' => $products,
-                     'subcategories' => $subcategories,
-                     'brands' => $brands,]);
+            return view('products', 
+                        ['categories' => $categories, 
+                        'products' => $products,
+                        'subcategories' => $subcategories,
+                        'brands' => $brands,]);
     }
-  
+
 
     /**
      * Store a newly created resource in storage.
@@ -105,7 +105,6 @@ class AdminController extends Controller
 
         return redirect()->route('admin.index');
     }
- 
 
     public function storeCategories(Request $request)
     {

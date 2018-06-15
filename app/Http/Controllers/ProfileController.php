@@ -9,6 +9,11 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('profile')->with('users', Auth::user());
+        if (!auth()->check()){
+            return redirect()->route('login');
+        } else{
+            return view('profile')->with('users', Auth::user());
+        }
+
     }
 }

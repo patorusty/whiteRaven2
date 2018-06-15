@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse burger" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">productos</a>
+                                <a class="nav-link" href="{{ route('products.index') }}">productos</a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ route('somos') }}">quienes somos</a>

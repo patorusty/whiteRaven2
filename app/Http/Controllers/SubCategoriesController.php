@@ -6,7 +6,7 @@ use App\SubCategory;
 use Illuminate\Http\Request;
 use App\SubCategoryController;
 
-class SubCategoryControllerController extends Controller
+class SubCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -74,6 +74,25 @@ class SubCategoryControllerController extends Controller
     {
         //
     }
+
+    public function storeSubCategories(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'category' => 'required',
+        ]);
+
+        $category = SubCategory::create([
+            'name'=> $request->input('name'),
+            'parent_id'=> $request->input('category'),
+        ]);
+
+        $categories = SubCategory::All();
+
+        return redirect()->route('admin.index');
+
+    }
+
 
     /**
      * Remove the specified resource from storage.

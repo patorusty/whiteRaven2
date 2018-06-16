@@ -40,6 +40,21 @@ class BrandsController extends Controller
         //
     }
 
+    public function storeBrands(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $brand = Brand::create([
+            'name'=> $request->input('name'),
+        ]);
+
+        $brands = Brand::All();
+
+        return redirect()->route('admin.index');
+    }
+
     /**
      * Display the specified resource.
      *

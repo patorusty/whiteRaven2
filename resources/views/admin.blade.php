@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 @section('title','Admin')
 @section('content')
+
 <h1>Crear Producto</h1>
 
 <form id="products" name="products" method="POST" action="{{route('admin.products')}}" enctype="multipart/form-data">
@@ -115,7 +116,7 @@
         <td> {{ $product->stock }}</td>
         <td> {{ $product->description }}</td>
         <td> {{ $product->favourite }}</td>
-        <td> <img src="{{ $product->img }}" style="max-width: 200px;"></td>
+        <td> <img src="{{ asset($product->img) }}" style="max-width: 200px;"></td>
         <th><i class="fas fa-edit"></i></th>
         <th><i class="fas fa-trash-alt"></i></th>
     </tr>
@@ -237,7 +238,6 @@
 <br>
 <br>
 <br>
-
 
 
 @endsection

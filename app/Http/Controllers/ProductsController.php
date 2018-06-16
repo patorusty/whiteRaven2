@@ -79,6 +79,54 @@ class ProductsController extends Controller
     {
         //
     }
+    public function storeProducts(Request $request)
+    {
+        $folder = 'fotoproducto';
+
+        $path = $request['img']->storePublicly($folder);
+        
+        //Codigo para verificar el checkbox!
+        if ($request['favourite'] == 1) {
+            $favourite = "Si"; 
+        } else {
+           $favourite = "No";
+        }
+        //
+
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'category' => 'required',
+            'subcategory' => 'required',
+            'brand' => 'required',
+            'price' => 'required|integer',
+            'stock' => 'required|integer',
+            'favourite' => 'string',
+            'description' => 'required|string|max:255',
+            'codigo' => 'required|integer',
+            'img' => 'required|image'
+        ]);
+
+
+        $product = Product::create([
+            'name'=> $request->input('name'),
+            'category_id'=> $request->input('category'),
+            'subcategory_id'=> $request->input('subcategory'),
+            'brand_id'=> $request->input('brand'),
+            'price'=> $request->input('price'),
+            'stock'=> $request->input('stock'),
+            'favourite'=> $favourite,
+            'description'=> $request->input('description'),
+            'codigo'=> $request->input('codigo'),
+            'img' => $path
+        ]);
+
+        $products = Product::All();
+
+        return redirect()->route('admin.index');
+    }
+
+
+
 
     /**
      * Remove the specified resource from storage.

@@ -29,9 +29,9 @@ Route::resource('products','ProductsController');
 // Rutas de Administacion 
 Route::group(['middleware' => 'admin'], function () {
         Route::resource('admin','AdminController');
-        Route::post('admin/products', 'AdminController@storeProducts')->name('admin.products');
-        Route::post('admin/brands', 'AdminController@storeBrands')->name('admin.brands');
-        Route::post('admin/categories', 'AdminController@storeCategories')->name('admin.categories');
-        Route::post('admin/subcategories', 'AdminController@storeSubCategories')->name('admin.subcategories');
+        Route::post('admin/products', 'ProductsController@storeProducts')->name('admin.products');
+        Route::post('admin/brands', 'BrandsController@storeBrands')->name('admin.brands');
+        Route::post('admin/categories', 'CategoriesController@storeCategories')->name('admin.categories');
+        Route::post('admin/subcategories', 'SubcategoriesController@storeSubCategories')->name('admin.subcategories');
 });
 // Hasta aca!!

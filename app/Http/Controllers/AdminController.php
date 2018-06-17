@@ -55,6 +55,7 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+<<<<<<< HEAD
 
     ////// STORE DE PRODCUTOS
     public function storeProducts(Request $request)
@@ -159,6 +160,8 @@ class AdminController extends Controller
 
     }
 
+=======
+>>>>>>> f672ca35525070aa8482e8ebbe7dc639892b862a
     /**
      * Display the specified resource.
      *

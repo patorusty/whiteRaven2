@@ -1,9 +1,10 @@
 @extends('layouts.layout')
 @section('title','Admin')
 @section('content')
+
 <h1>Crear Producto</h1>
 
-<form id="products" name="products" method="POST" action="{{route('admin.products')}}">
+<form id="products" name="products" method="POST" action="{{route('admin.products')}}" enctype="multipart/form-data">
     {{ csrf_field() }}  
     <div class="form-group row">
         <label for="name" class="col-3 col-form-label">Nombre del Producto:</label>
@@ -140,7 +141,7 @@
         <td> {{ $product->stock }}</td>
         <td> {{ $product->description }}</td>
         <td> {{ $product->favourite }}</td>
-        <td> <img src="{{ $product->img }}" style="max-width: 200px;"></td>
+        <td> <img src="{{ asset($product->img) }}" style="max-width: 200px;"></td>
         <th><i class="fas fa-edit"></i></th>
         <th><i class="fas fa-trash-alt"></i></th>
     </tr>
@@ -262,7 +263,6 @@
 <br>
 <br>
 <br>
-
 
 
 @endsection

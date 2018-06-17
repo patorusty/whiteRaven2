@@ -23,6 +23,22 @@ class CategoriesController extends Controller
         return view('categories')->with('categories', Category::all());
     }
 
+    public function storeCategories(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $category = Category::create([
+            'name'=> $request->input('name'),
+        ]);
+
+        $categories = Category::All();
+
+        return redirect()->route('admin.index');
+
+    }
+
     public function store(Request $request)
     {        
      //

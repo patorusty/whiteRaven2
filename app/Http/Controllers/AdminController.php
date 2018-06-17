@@ -67,7 +67,7 @@ class AdminController extends Controller
         if ($request['favourite'] == 1) {
             $favourite = "Si"; 
         } else {
-           $favourite = "No";
+            $favourite = "No";
         }
         //
 
@@ -81,7 +81,7 @@ class AdminController extends Controller
             'stock' => 'required|integer',
             'favourite' => 'string',
             'description' => 'required|string|max:255',
-            'codigo' => 'required|integer',
+            'codigo' => 'required|integer|unique:products',
             // 'img' => 'required|image'
         ]);
 
@@ -110,7 +110,7 @@ class AdminController extends Controller
     public function storeBrands(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'name' => 'required|unique:brands',
         ]);
 
         $brand = Brand::create([
@@ -125,7 +125,7 @@ class AdminController extends Controller
     public function storeCategories(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'name' => 'required|unique:categoires',
         ]);
 
         $category = Category::create([

@@ -8,7 +8,12 @@
     <div class="form-group row">
         <label for="name" class="col-3 col-form-label">Nombre del Producto:</label>
         <div class="col-4">
-        <input type="text" class="form-control" name="name" id="name"/>
+        <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="name"/>
+        @if ($errors->has('name'))
+            <span class="help-block">
+                <strong>{{ $errors->first('name') }}</strong>
+            </span>
+        @endif
     </div>
     </div>
     <div class="form-group row">
@@ -43,21 +48,36 @@
     </div>
     </div>
     <div class="form-group row">
-        <label for="name" class="col-3 col-form-label">Precio: </label>
+        <label for="name" class="col-3 col-form-label {{ $errors->has('price') ? ' is-invalid' : '' }}">Precio: </label>
             <div class="col-4">
         <input type="float" name="price" id="price"/>
+        @if ($errors->has('price'))
+            <span class="help-block">
+                <strong>{{ $errors->first('price') }}</strong>
+            </span>
+        @endif
     </div>
 </div>
     <div class="form-group row">
-        <label for="name" class="col-3 col-form-label">Stock: </label>
+        <label for="name" class="col-3 col-form-label {{ $errors->has('stock') ? ' is-invalid' : '' }}">Stock: </label>
             <div class="col-4">
-        <input type="integer" name="stock" id="stock"/>
+        <input type="number" name="stock" id="stock"/>
+        @if ($errors->has('stock'))
+            <span class="help-block">
+                <strong>{{ $errors->first('stock') }}</strong>
+            </span>
+        @endif
     </div>
 </div>
     <div class="form-group row">
-        <label for="name" class="col-3 col-form-label">Codigo de producto: </label>
+        <label for="name" class="col-3 col-form-label {{ $errors->has('codigo') ? ' is-invalid' : '' }}">Codigo de producto: </label>
             <div class="col-4">
-        <input type="integer" name="codigo" id="stock"/>
+        <input type="integer" name="codigo" id="codigo"/>
+        @if ($errors->has('codigo'))
+            <span class="help-block">
+                <strong>{{ $errors->first('codigo') }}</strong>
+            </span>
+        @endif
     </div>
 </div>
 <div class="form-group row">
@@ -67,9 +87,14 @@
     </div>
 </div>
 <div class="form-group row">
-        <label for="description" class="col-3 col-form-label">Descripcion:</label>
+        <label for="description" class="col-3 col-form-label {{ $errors->has('description') ? ' is-invalid' : '' }}">Descripcion:</label>
         <div class="col-4">
         <textarea class="form-control" id="description" name="description" rows="3" cols="2"></textarea>
+        @if ($errors->has('description'))
+            <span class="help-block">
+                <strong>{{ $errors->first('description') }}</strong>
+            </span>
+        @endif
     </div>
 </div>
     <div class="form-group row">

@@ -85,7 +85,7 @@ class ProductsController extends Controller
     {
         $folder = 'products';
 
-        $img1 = $request->file('img1')->storePublicly('products', 'assets');
+        $img1 = $request->file('img1')->storePublicly($folder, 'assets');
         // $img2 = $request->file('img2')->storePublicly('photoproducts', 'assets');
         // $imagenes = ['imagenes' => [$img1, $img2]];
         // $collection = Collection::make($imagenes);

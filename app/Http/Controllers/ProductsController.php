@@ -6,6 +6,7 @@ use App\Brand;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection as Collection;
 
 class ProductsController extends Controller
 {
@@ -23,6 +24,7 @@ class ProductsController extends Controller
                     ['categories' => $categories, 
                         'products' => $products,
                         'brands' => $brands,]);
+        $photos = Storage::get('storage/app/products');
     }
 
     /**
@@ -81,9 +83,14 @@ class ProductsController extends Controller
     }
     public function storeProducts(Request $request)
     {
-        $folder = 'fotoproducto';
+        $folder = 'products';
 
-        $path = $request['img']->storePublicly($folder);
+        $img1 = $request->file('img')->storePublicly('products', 'assets');
+        // $img2 = $request->file('img2')->storePublicly('products', 'assets');
+        // $imagenes = ['imagenes' => [$img1, $img2]];
+        // $collection = Collection::make($imagenes);
+        // $lista = $collection->implode('foto',',');
+        // dd($collection);
         
         //Codigo para verificar el checkbox!
         if ($request['favourite'] == 1) {
@@ -117,7 +124,7 @@ class ProductsController extends Controller
             'favourite'=> $favourite,
             'description'=> $request->input('description'),
             'codigo'=> $request->input('codigo'),
-            'img' => $path
+            'img' => $img1
         ]);
 
         $products = Product::All();

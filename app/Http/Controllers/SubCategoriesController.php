@@ -78,7 +78,7 @@ class SubCategoriesController extends Controller
     public function storeSubCategories(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'name' => 'required|unique:sub_categories',
             'category' => 'required',
         ]);
 

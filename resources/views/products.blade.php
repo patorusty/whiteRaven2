@@ -35,5 +35,31 @@
     </tr>
     @endforeach
   </table>    
+
+  {{$product->img}}
+
+  <div class="container">
+
+      <!-- Page Features -->
+      <div class="row text-center">
+
+        @foreach ($products->all() as $product)
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="{{asset('storage/'.$product->img)}}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{ $product->name }}</h4>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-block btn-dark">Ver mas</a>
+            </div>
+          </div>
+        </div>
+        @endforeach
+
+      </div>
+      <!-- /.row -->
+
+    </div>
 @endsection
 

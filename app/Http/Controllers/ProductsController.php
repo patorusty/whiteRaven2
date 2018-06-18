@@ -21,8 +21,8 @@ class ProductsController extends Controller
         $brands = Brand::All();
         return view('products', 
                     ['categories' => $categories, 
-                     'products' => $products,
-                     'brands' => $brands,]);
+                        'products' => $products,
+                        'brands' => $brands,]);
     }
 
     /**
@@ -102,7 +102,7 @@ class ProductsController extends Controller
             'stock' => 'required|integer',
             'favourite' => 'string',
             'description' => 'required|string|max:255',
-            'codigo' => 'required|integer',
+            'codigo' => 'required|integer|unique:products',
             'img' => 'required|image'
         ]);
 

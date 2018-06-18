@@ -3,44 +3,16 @@
 @section('title', 'Productos')
 @section('content')
 
-
-
-<table class="egt" border=”1″>
-    <tr>
-      <th>Id</th>
-      <th>Codigo</th>
-      <th>Nombre</th>
-      <th>Marca</th>
-      <th>Categoria</th>
-      <th>Precio</th>
-      <th>Stock</th>
-      <th>Descripcion</th>
-      <th>Imagen</th>
-      <th>Editar</th>
-      <th>Eliminar</th>
-    </tr>
-    @foreach ($products->all() as $product)
-    <tr>
-        <td> {{ $product->id }}</td>
-        <td> {{ $product->codigo }}</td>
-        <td> {{ $product->name }}</td>
-        <td> {{ $product->brand_id }}</td>
-        <td> {{ $product->category_id }}</td>
-        <td> {{ $product->price }}</td>
-        <td> {{ $product->stock }}</td>
-        <td> {{ $product->description }}</td>
-        <td> <img src="{{ $product->img }}" style="max-width: 200px;"></td>
-        <th><i class="fas fa-edit"></i></th>
-        <th><i class="fas fa-trash-alt"></i></th>
-    </tr>
-    @endforeach
-  </table>    
-
-  {{$product->img}}
-
   <div class="container">
 
-      <!-- Page Features -->
+
+      <div class="">
+          <ul class="bread">
+            <li class=""><a href="#0" class="bc-li">Home</a></li>
+            <li class=""><a href="#0" class="">Productos</a></li>
+          </ul>
+        </div>
+
       <div class="row text-center">
 
         @foreach ($products->all() as $product)
@@ -58,8 +30,6 @@
         @endforeach
 
       </div>
-      <!-- /.row -->
-
     </div>
 @endsection
 

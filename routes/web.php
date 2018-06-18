@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\SubCategoriesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +26,7 @@ Route::get('profile', 'ProfileController@index')->name('profile');
 Route::get('contacto', 'ContactoController@index')->name('contacto');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::resource('products','ProductsController');
+Route::resource('subcategories', 'SubCategoriesController');
 
 
 // Rutas de Administacion 

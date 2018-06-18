@@ -530,6 +530,25 @@ a:hover {
     margin-top: 10px;
 }
 
+.bc-li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.bc-li::after{
+    content: " > ";
+    color: black;
+}
+
+.bread li {
+    display: inline-block;
+}
+
+.bread li a {
+    color: black;
+}
+
 @media (max-width: 992px) {
     .active {
         text-align: center;

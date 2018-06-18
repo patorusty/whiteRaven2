@@ -98,12 +98,18 @@
         @endif
     </div>
 </div>
-    <div class="form-group row">
-        <label for="avatar" class="col-3 col-form-label col-xs-12">Avatar:</label>
-            <div class="col-4">
-        <input type="file" name="img">
-    </div>
+<div class="form-group row">
+        <label for="avatar" class="col-3 col-form-label col-xs-12">Foto 1:</label>
+        <div class="col-4">
+            <input type="file" name="img">
+        </div>
 </div>
+{{-- <div class="form-group row">
+    <label for="avatar" class="col-3 col-form-label col-xs-12">Foto 2:</label>
+    <div class="col-4">
+        <input type="file" name="img2">
+    </div>
+</div> --}}
 
     <button type="submit" class="btn btn-dark">Crear</button>
     
@@ -141,7 +147,7 @@
         <td> {{ $product->stock }}</td>
         <td> {{ $product->description }}</td>
         <td> {{ $product->favourite }}</td>
-        <td> <img src="{{ asset($product->img) }}" style="max-width: 200px;"></td>
+        <td> <img src="{{$product->img}}" style="max-width: 200px;"></td>
         <th><i class="fas fa-edit"></i></th>
         <th><i class="fas fa-trash-alt"></i></th>
     </tr>

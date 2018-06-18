@@ -18,7 +18,7 @@
         @foreach ($products->all() as $product)
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src="{{asset('storage/'.$product->img)}}" alt="">
+            <img class="card-img-top" src="images/{{$product->img}}" alt="">
             <div class="card-body">
               <h4 class="card-title">{{ $product->name }}</h4>
             </div>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\SubCategory;
 use Illuminate\Http\Request;
-use App\SubCategoryController;
 
 class SubCategoriesController extends Controller
 {
@@ -15,7 +14,8 @@ class SubCategoriesController extends Controller
      */
     public function index()
     {
-        return view('subcategory.index');
+        $subcategories = SubCategory::All();
+        return view('subcategory.index')->with('subcategories');
 
     }
 
@@ -44,21 +44,22 @@ class SubCategoriesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\SubCategoryController  $subCategoryController
+     * @param  \App\SubCategoriesController  $subCategoriesController
      * @return \Illuminate\Http\Response
      */
-    public function show(SubCategoryController $subCategoryController)
+    public function show(SubCategoriesController $subCategoriesController)
     {
-        //
+        $subcategory = SubCategory::find($subCategoriesController);
+        dd($subcategory);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\SubCategoryController  $subCategoryController
+     * @param  \App\SubCategoriesController  $subCategoriesController
      * @return \Illuminate\Http\Response
      */
-    public function edit(SubCategoryController $subCategoryController)
+    public function edit(SubCategoriesController $subCategoriesController)
     {
         //
     }
@@ -67,10 +68,10 @@ class SubCategoriesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\SubCategoryController  $subCategoryController
+     * @param  \App\SubCategoriesController  $subCategoriesController
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SubCategoryController $subCategoryController)
+    public function update(Request $request, SubCategoriesController $subCategoriesController)
     {
         //
     }
@@ -97,10 +98,10 @@ class SubCategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\SubCategoryController  $subCategoryController
+     * @param  \App\SubCategoriesController  $subCategoriesController
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SubCategoryController $subCategoryController)
+    public function destroy(SubCategoriesController $subCategoriesController)
     {
         //
     }

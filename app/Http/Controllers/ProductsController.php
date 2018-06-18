@@ -85,11 +85,12 @@ class ProductsController extends Controller
     {
         $folder = 'products';
 
-        $img1 = $request->file('img')->storePublicly('products', 'assets');
-        // $img2 = $request->file('img2')->storePublicly('products', 'assets');
+        $img1 = $request->file('img1')->storePublicly('products', 'assets');
+        // $img2 = $request->file('img2')->storePublicly('photoproducts', 'assets');
         // $imagenes = ['imagenes' => [$img1, $img2]];
         // $collection = Collection::make($imagenes);
-        // $lista = $collection->implode('foto',',');
+        // $array = $collection->implode("imagenes");
+
         // dd($collection);
         
         //Codigo para verificar el checkbox!
@@ -110,7 +111,7 @@ class ProductsController extends Controller
             'favourite' => 'string',
             'description' => 'required|string|max:255',
             'codigo' => 'required|integer|unique:products',
-            'img' => 'required|image'
+            'img1' => 'required|image'
         ]);
 
 

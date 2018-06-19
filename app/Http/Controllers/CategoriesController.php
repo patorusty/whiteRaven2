@@ -43,4 +43,10 @@ class CategoriesController extends Controller
     {        
      //
     }
+
+    public function destroy($id) {
+        $product = \App\Category::find($id);
+        $product->delete();
+        return redirect('admin');
+        }
 }

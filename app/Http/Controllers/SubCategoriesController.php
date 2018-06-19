@@ -101,8 +101,9 @@ class SubCategoriesController extends Controller
      * @param  \App\SubCategoriesController  $subCategoriesController
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SubCategoriesController $subCategoriesController)
-    {
-        //
-    }
+    public function destroy($id) {
+        $product = \App\SubCategory::find($id);
+        $product->delete();
+        return redirect('admin');
+        }
 }

@@ -9,7 +9,7 @@
     <div class="form-group row">
         <label for="name" class="col-3 col-form-label">Nombre del Producto:</label>
         <div class="col-4">
-        <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="products" id="name"/>
+        <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="name"/>
         @if ($errors->has('name'))
             <span class="help-block">
                 <strong>{{ $errors->first('name') }}</strong>
@@ -153,7 +153,11 @@
             @endforeach
         </td>
         <th><i class="fas fa-edit"></i></th>
-        <th><i class="fas fa-trash-alt"></i></th>
+        <form action="/products/{{$product->id}}" method="post">
+            {{ method_field('delete') }}   
+            {{ csrf_field() }}
+            <th><button type="submit" class="fas fa-trash-alt"></button></th>
+        </form>
     </tr>
     @endforeach
     </tbody>
@@ -188,7 +192,11 @@
             <tr>
                 <td> {{$brand->name}}</td>
                 <th><i class="fas fa-edit"></i></th>
-                <th><i class="fas fa-trash-alt"></i></th>
+                <form action="/brands/{{$brand->id}}" method="post">
+                    {{ method_field('delete') }}   
+                    {{ csrf_field() }}
+                    <th><button type="submit" class="fas fa-trash-alt"></button></th>
+                </form>            
             </tr>
             @endforeach
     </table>   
@@ -222,7 +230,11 @@
                 <tr>
                     <td> {{ $category->name }}</td>
                     <th><i class="fas fa-edit"></i></th>
-                    <th><form action=""><i class="fas fa-trash-alt"></i></form></th>
+                    <form action="/categories/{{$category->id}}" method="post">
+                        {{ method_field('delete') }}   
+                        {{ csrf_field() }}
+                        <th><button type="submit" class="fas fa-trash-alt"></button></th>
+                    </form>                  
                 </tr>
                 @endforeach
         </table>   
@@ -265,8 +277,11 @@
                     <td> {{ $subcategory->name }}</td>
                     <td> {{ $subcategory->parent_id }}</td>
                     <th><i class="fas fa-edit"></i></th>
-                    <th><i class="fas fa-trash-alt"></i></th>
-                </tr>
+                    <form action="/subcategories/{{$subcategory->id}}" method="post">
+                        {{ method_field('delete') }}   
+                        {{ csrf_field() }}
+                        <th><button type="submit" class="fas fa-trash-alt"></button></th>
+                    </form>                  </tr>
                 @endforeach
         </table>   
 <br>

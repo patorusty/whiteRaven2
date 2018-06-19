@@ -148,8 +148,9 @@ class ProductsController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
-    {
-        //
-    }
+        public function destroy($id) {
+        $product = \App\Product::find($id);
+        $product->delete();
+        return redirect('admin');
+        }
 }

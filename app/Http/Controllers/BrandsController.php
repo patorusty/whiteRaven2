@@ -95,8 +95,9 @@ class BrandsController extends Controller
      * @param  \App\Brands  $brands
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Brands $brands)
-    {
-        //
-    }
+    public function destroy($id) {
+        $product = \App\Brand::find($id);
+        $product->delete();
+        return redirect('admin');
+        }
 }

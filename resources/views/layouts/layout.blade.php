@@ -8,7 +8,7 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="./CSS/styles.css">
+    <link rel="stylesheet" href="{{asset('./CSS/styles.css')}}">
     <title>White Raven - @yield('title')</title>
 </head>
 
@@ -16,7 +16,7 @@
     <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark main-nav d-flex">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="images/logo.png" alt="logo" class="logo">
+                    <img src="{{asset("images/logo.png")}}" alt="logo" class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">

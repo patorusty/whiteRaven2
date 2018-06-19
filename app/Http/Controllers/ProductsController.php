@@ -20,7 +20,7 @@ class ProductsController extends Controller
         $products = Product::All();
         $categories = Category::All();
         $brands = Brand::All();
-        return view('products', 
+        return view('products.index', 
                     ['categories' => $categories, 
                         'products' => $products,
                         'brands' => $brands,]);
@@ -54,9 +54,11 @@ class ProductsController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = Product::find($id);
+
+        return view ('products.show', compact('product'));
     }
 
     /**

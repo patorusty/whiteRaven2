@@ -86,12 +86,16 @@ class ProductsController extends Controller
         $folder = 'products';
 
         $img1 = $request->file('img1')->storePublicly($folder, 'assets');
-        // $img2 = $request->file('img2')->storePublicly('photoproducts', 'assets');
-        // $imagenes = ['imagenes' => [$img1, $img2]];
-        // $collection = Collection::make($imagenes);
-        // $array = $collection->implode("imagenes");
+        if (!$request->file('img2')){
+            $img2 = " ";
+        } elseif ($request->file('img2')) {
+            $img2 = $request->file('img2')->storePublicly($folder, 'assets');
+        } 
+        $imagenes = collect([$img1, $img2]);
 
-        // dd($collection);
+        $array = $imagenes->implode(" , ");
+
+        // dd($array);
         
         //Codigo para verificar el checkbox!
         if ($request['favourite'] == 1) {
@@ -125,7 +129,7 @@ class ProductsController extends Controller
             'favourite'=> $favourite,
             'description'=> $request->input('description'),
             'codigo'=> $request->input('codigo'),
-            'img' => $img1
+            'img' => $array
         ]);
 
         $products = Product::All();

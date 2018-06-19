@@ -9,7 +9,7 @@
     <div class="form-group row">
         <label for="name" class="col-3 col-form-label">Nombre del Producto:</label>
         <div class="col-4">
-        <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="name"/>
+        <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="products" id="name"/>
         @if ($errors->has('name'))
             <span class="help-block">
                 <strong>{{ $errors->first('name') }}</strong>
@@ -22,7 +22,7 @@
         <div class="col-4">
         <select name="category">
                 @foreach ($categories->all() as $categoria);
-                <option value= "{{ $categoria->name }}">{{ $categoria->name }}</option>
+                <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
                 @endforeach};
         </select>
     </div>
@@ -33,7 +33,7 @@
         <div class="col-4">
         <select name="subcategory">
                 @foreach ($subcategories->all() as $subcategoria);
-                <option value= "{{ $subcategoria->name }}">{{ $subcategoria->name }}</option>
+                <option value= "{{ $subcategoria->id }}">{{ $subcategoria->name }}</option>
                 @endforeach};
         </select>
     </div>
@@ -43,7 +43,7 @@
             <div class="col-4">
         <select name="brand">
             @foreach ($brands->all() as $brand)
-            <option value= "{{ $brand->name }}">{{ $brand->name }}</option>
+            <option value= "{{ $brand->id }}">{{ $brand->name }}</option>
             @endforeach
         </select>
     </div>
@@ -104,12 +104,12 @@
             <input type="file" name="img1">
         </div>
 </div>
-{{-- <div class="form-group row">
+<div class="form-group row">
     <label for="avatar" class="col-3 col-form-label col-xs-12">Foto 2:</label>
     <div class="col-4">
         <input type="file" name="img2">
     </div>
-</div> --}}
+</div>
 
     <button type="submit" class="btn btn-dark">Crear</button>
     
@@ -147,7 +147,11 @@
         <td> {{ $product->stock }}</td>
         <td> {{ $product->description }}</td>
         <td> {{ $product->favourite }}</td>
-        <td> <img src="images/{{$product->img}}" style="max-width: 200px;"></td>
+        <td>
+            @foreach (explode(" , ", $product->img)  as $value)
+            <img src="images/{{$value}}" width="100" alt="">
+            @endforeach
+        </td>
         <th><i class="fas fa-edit"></i></th>
         <th><i class="fas fa-trash-alt"></i></th>
     </tr>
@@ -160,13 +164,12 @@
 <br>
 <hr>
 <h1>Crear Marca</h1>
-
     <form id="brands" name="brands" method="POST" action="{{route('admin.brands')}}">
     {{ csrf_field() }}
     <div class="form-group row">
     <label for="name" class="col-3 col-form-label">Nombre de la Marca:</label>
     <div class="col-4">
-    <input type="text" name="name" class="form-control" id="name"/>
+    <input type="text" name="brands" class="form-control" id="name"/>
 </div>
 </div>
 <button type="submit" class="btn btn-dark">Crear Marca</button>
@@ -183,7 +186,7 @@
         </thead>
             @foreach ($brands->all() as $brand)
             <tr>
-                <td> {{ $brand->name }}</td>
+                <td> {{$brand->name}}</td>
                 <th><i class="fas fa-edit"></i></th>
                 <th><i class="fas fa-trash-alt"></i></th>
             </tr>
@@ -199,7 +202,7 @@
     <div class="form-group row">
         <label for="name" class="col-3 col-form-label">Nombre de la Categoria:</label>
         <div class="col-4">
-        <input type="text" name="name" class="form-control" id="name"/>
+        <input type="text" name="categories" class="form-control" id="name"/>
     </div>
     </div>
 
@@ -232,7 +235,7 @@
     <div class="form-group row">
         <label for="name" class="col-3 col-form-label">Nombre de Sub Categoria:</label>
         <div class="col-4">
-        <input type="text" name="name" class="form-control" id="name"/>
+        <input type="text" name="subcategories" class="form-control" id="name"/>
         </div>
     </div>
     <div class="form-group row">
@@ -240,7 +243,7 @@
         <div class="col-4">
         <select name="category">
             @foreach ($categories->all() as $categoria)
-            <option value= "{{ $categoria->name }}">{{ $categoria->name }}</option>
+            <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
             @endforeach
         </select>
     </div>

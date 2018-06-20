@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\SubCategory;
+use App\Product;
 use Illuminate\Http\Request;
 
 class SubCategoriesController extends Controller
@@ -15,7 +16,7 @@ class SubCategoriesController extends Controller
     public function index()
     {
         $subcategories = SubCategory::All();
-        return view('subcategories.index', compact('subcategories'));
+        return view('subcategories.index', 'layout.layout', compact('subcategories'));
 
     }
 
@@ -27,7 +28,6 @@ class SubCategoriesController extends Controller
     public function create()
     {
         return view('subcategories')->with('subcategories', SubCategory::all());
-
     }
 
     /**
@@ -47,10 +47,12 @@ class SubCategoriesController extends Controller
      * @param  \App\SubCategoriesController  $subCategoriesController
      * @return \Illuminate\Http\Response
      */
-    public function show(SubCategoriesController $subCategoriesController)
+    public function show($id)
     {
-        $subcategory = SubCategory::find($subCategoriesController);
-        dd($subcategory);
+        $subcategory = SubCategory::find($id);
+        $products = $subcategory->products;
+
+        return view('subcategories.show', compact('products','subcategory'));
     }
 
     /**

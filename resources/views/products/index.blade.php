@@ -8,8 +8,8 @@
 
       <div class="">
           <ul class="bread">
-            <li class=""><a href="#0" class="bc-li">Home</a></li>
-            <li class=""><a href="#0" class="">Productos</a></li>
+            <li class=""><a href="/home" class="bc-li">Home</a></li>
+            <li class="">Productos</li>
           </ul>
         </div>
 

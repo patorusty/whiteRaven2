@@ -12,13 +12,7 @@
                     @csrf
                     <div class="div-form">
                         <Label for="nombre">Nombre:</Label>
-                        <input type="text" name="name" class="input-registro form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" input align='right' value="<?php if (isset($_POST['nombre'])) {echo $_POST['nombre'];}?>"/>
-                        <br>
-                        @if ($errors->has('name'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('name') }}</strong>
-                        </span>
-                        @endif
+                        <input type="text" name="name" class="input-registro form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" input align='right' value="<?php if (isset($_POST['nombre'])) {echo $_POST['nombre'];}?>"/>  
                     </div>
 
                     <div class="div-form">
@@ -37,7 +31,7 @@
                         </div>
                     <div class="div-form">
                             <Label for="email">Mensaje:</Label>
-                            <textarea name="comentarios" rows="5" cols="60"></textarea>                   
+                            <textarea name="comentarios" rows="5" cols="50"></textarea>                   
                     </div>
                         <div class="errores">
                                 <span></span><br>

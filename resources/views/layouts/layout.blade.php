@@ -13,7 +13,6 @@
 </head>
 
 <body>
-    <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark main-nav d-flex">
                 <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="{{asset("images/logo.png")}}" alt="logo" class="logo">
@@ -25,8 +24,15 @@
 
                 <div class="collapse navbar-collapse burger" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ route('products.index') }}">productos</a>
+                            <li class="nav-item active dropdown">
+                                <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">productos</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{route('products.index')}}">Todos</a>
+                                    {{-- @foreach($subcateries as $subcategory)
+                                    <a class="dropdown-item" href="/subcategories/{{$subcategory->id}}">{{$subcategory->name}}</a>
+                                    @endforeach
+                                    <a class="dropdown-item" href="/brands">Marcas</a> --}}
+                                    </div>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ route('somos') }}">quienes somos</a>
@@ -65,8 +71,10 @@
 
                 </div>
         </nav>
+        <div class="container">
 @yield('content')
-        <nav class="footer">
+</div>
+        <footer class="footer py-2 fixed-bottom">
                 <a href="" class="socialmedia">
                     <i class="fab fa-facebook-square fa-2x socialmedia"></i>
                 </a>
@@ -74,15 +82,15 @@
                     <i class="fab fa-instagram fa-2x socialmedia"></i>
                 </a>
                 <p class="texto-footer">Copyright® Sarbros Desing</p>
-        </nav>
+        </footer>
 
-    </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/ionicons@4.2.0/dist/ionicons.js"></script>
 </body>
 
 </html>

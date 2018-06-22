@@ -28,9 +28,9 @@
                                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">productos</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="{{route('products.index')}}">Todos</a>
-                                    {{-- @foreach($subcategories as $subcategory)
+                                    @foreach($subcategories as $subcategory)
                                     <a class="dropdown-item" href="/subcategories/{{$subcategory->id}}">{{$subcategory->name}}</a>
-                                    @endforeach --}}
+                                    @endforeach
                                     <a class="dropdown-item" href="/brands">Marcas</a>
                                     </div>
                             </li>

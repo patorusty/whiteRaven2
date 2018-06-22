@@ -28,6 +28,7 @@ Route::get('logout', 'Auth\LoginController@logout');
 Route::resource('products','ProductsController');
 Route::resource('subcategories', 'SubCategoriesController');
 Route::resource('brands', 'BrandsController');
+Route::resource('cart', 'CartsController');
 
 
 

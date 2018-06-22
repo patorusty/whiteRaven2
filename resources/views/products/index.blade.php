@@ -2,18 +2,13 @@
 @extends('layouts.layout')
 @section('title', 'Productos')
 @section('content')
-
-  <div class="container">
-
-
-      <div class="">
+      <div class="mt-3">
           <ul class="bread">
             <li class=""><a href="/home" class="bc-li">Home</a></li>
             <li class="">Productos</li>
           </ul>
         </div>
-
-      <div class="row text-center">
+      <div class="row text-center mt-3">
 
         @foreach ($products->all() as $product)
         <div class="col-lg-3 col-md-6 mb-4">
@@ -30,6 +25,5 @@
         @endforeach
 
       </div>
-    </div>
 @endsection
 

@@ -2,7 +2,6 @@
 @section('title', 'Productos')
 @section('content')
 
-<div class="container">
         <div class="">
                 <ul class="bread mt-3">
                     <li class=""><a href="#0" class="bc-li">Home</a></li>
@@ -44,7 +43,6 @@
                 <p class="text-product mt-5">{{$product->description}}</p>
         </div>
     </div>
-</div>
 </div>
 
 

@@ -542,6 +542,7 @@ a:hover {
 
 .bread li {
     display: inline-block;
+    font-family: 'Open Sans', sans-serif
 }
 
 .bread li a {
@@ -566,6 +567,10 @@ a:hover {
 
 .brand-img{
     max-width: 100%;
+}
+
+.ul-side li{
+    list-style-type: none;
 }
 
 @media (max-width: 992px) {

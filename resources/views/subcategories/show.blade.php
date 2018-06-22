@@ -2,9 +2,6 @@
 @section('title', 'Sucategorias')
 @section('content')
 
-<div class="container">
-
-
         <div class="mt-3">
             <ul class="bread">
             <li class=""><a href="/home" class="bc-li">Home</a></li>
@@ -29,7 +26,6 @@
         </div>
             @endforeach
             </div>
-        </div>
 
 
 @endsection

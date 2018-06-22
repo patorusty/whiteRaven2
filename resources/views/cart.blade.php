@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tr>
-                <td>1</td>
+                <td>{{count ($carts, 1)}}</td>
                 @foreach($carts as $key => $value)
                 <td>{{$value}}</td>
                 @endforeach

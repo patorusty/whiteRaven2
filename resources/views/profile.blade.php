@@ -11,7 +11,7 @@
         <div class="perfilusuario">
             
             <h1>Bienvenido {{ $users->name }} </h1>
-            <img src="" style="max-width: 200px;">
+            <img src='images/{{$users->img}}' style="max-width: 200px;">
         </div>
             <a  class="boton-inicio"  href="{{ route('login')}}">EDITAR PERFIL</a>
             <form action="{{ route('logout') }}" method="POST">
@@ -20,7 +20,7 @@
             </form>
             <br>
         </div>
-</div>
+    </div>
 </div>
 
 @endsection

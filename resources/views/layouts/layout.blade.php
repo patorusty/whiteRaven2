@@ -63,7 +63,7 @@
                             <a href="{{ route('profile') }}" class="d-flex align-items-center login user">{{ Auth::user()->name }}
                             @endguest
                                     <a href="{{ route('cart.index') }}">
-                                        <i class="fas fa-shopping-cart user"></i>
+                                        <i class="fas fa-shopping-cart user"></i>(1)
                                     </a>
                             </a>
                         </div>

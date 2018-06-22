@@ -32,6 +32,9 @@ Route::resource('cart', 'CartsController');
 
 
 
+
+
+
 // Rutas de Administacion 
 Route::group(['middleware' => 'admin'], function () {
         Route::resource('admin','AdminController');

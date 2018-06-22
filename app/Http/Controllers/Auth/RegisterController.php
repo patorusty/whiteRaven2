@@ -6,7 +6,10 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Collection as Collection;
+
 
 class RegisterController extends Controller
 {
@@ -63,17 +66,19 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(array $request)
     {
-        $folder = 'fotoperfil';
+        $folder = 'perfil';
+        // dd($request);
+        // $path = $data['img']->storePublicly($folder);
+        // $path = $request->file('img')->storePublicly($folder, 'assets');
+        $path = $request['img']->storePublicly($folder, 'assets');
 
-        $path = $data['img']->storePublicly($folder);
-        
         return User::create([
-            'name' => $data['name'],
-            'lastname' => $data['lastname'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name' => $request['name'],
+            'lastname' => $request['lastname'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
             'img' => $path
         ]);
     }

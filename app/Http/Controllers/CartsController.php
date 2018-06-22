@@ -18,12 +18,19 @@ class CartsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
+
+
         // return view('cart');
-        return view('cart', ['carts' => session('carts')]);
+        // return view('cart', ['carts' => session('carts')]);
         $carts = session('carts');
 
-        // $carts = \Session::get('carts');
+        if ($carts === null){
+            return view('products');
+        } else {
+            return view('cart', ['carts' => session('carts')]);
+        }
     }
 
 

@@ -124,7 +124,7 @@ class ProductsController extends Controller
         $product = Product::create([
             'name'=> $request->input('name'),
             'category_id'=> $request->input('category'),
-            'subcategory_id'=> $request->input('subcategory'),
+            'sub_category_id'=> $request->input('subcategory'),
             'brand_id'=> $request->input('brand'),
             'price'=> $request->input('price'),
             'stock'=> $request->input('stock'),

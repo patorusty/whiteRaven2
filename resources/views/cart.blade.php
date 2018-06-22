@@ -3,23 +3,21 @@
 @section('content')
 <body>
     <table>
-    <tr>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Precio</th>
-        <th>Borrar</th>
-    </tr>
-    @foreach($carts as $key => $value)
-    <tr>
-        <td>{{$key->value}}</td>
-        <td>{{$key->value}}</td>
-        <td>{{$key->value}}</td>
-    </tr>
-    @endforeach
-</table>
-
-
-
-{{dd($carts)}}
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>1</td>
+                @foreach($carts as $key => $value)
+                <td>{{$value}}</td>
+                @endforeach
+                <td>borrar</td>
+            </tr>
 </body>
 @endsection

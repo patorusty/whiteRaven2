@@ -11,8 +11,11 @@
     <div class="row mt-3 mx-auto">
         <div class="col-md-6">
             <div class="col-md-12 d-flex justify-content-center">
-            <img src="{{asset('images/' . $product->img)}}" class="img-product rounded" alt="">
-        </div>
+                    @foreach (explode(" , ", $product->img)  as $value)
+                    <img src='{{asset('images/' . $value)}}' width="100" alt="" class="img-product rounded" alt="">
+                    @endforeach
+            {{-- <img src="{{asset('images/' . $product->img)}}" class="img-product rounded" alt=""> --}}
+            </div>
         </div>
         <div class="col-md-6">
     <form id="carts" name="carts" method="POST" action="{{route('cart.store')}}" >

@@ -62,7 +62,7 @@
                             @else
                             <a href="{{ route('profile') }}" class="d-flex align-items-center login user">{{ Auth::user()->name }}
                             @endguest
-                                    <a href="cart.php">
+                                    <a href="{{ route('cart.index') }}">
                                         <i class="fas fa-shopping-cart user"></i>
                                     </a>
                             </a>

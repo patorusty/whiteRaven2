@@ -296,6 +296,11 @@ a:hover {
     margin-top: 10px;
 }
 
+.faqtexto p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em,
+}
+
 .imagenfaq {
     max-width: 100%;
 }

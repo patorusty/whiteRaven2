@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('brand_id');
             $table->string('category_id');
+            $table->string('sub_category_id');
             $table->float('price');
             $table->integer('stock');
             $table->string('img');

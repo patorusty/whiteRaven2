@@ -12,12 +12,18 @@
                     <th>Borrar</th>
                 </tr>
             </thead>
-            <tr>
-                <td>{{count ($carts, 1)}}</td>
-                @foreach($carts as $key => $value)
-                <td>{{$value}}</td>
+            @foreach($carts as $key => $value)
+                <tr>
+                        <td>
+                            @for($i = 1; $i <= (count ($carts, 1)); $i++)
+                            {{ $i}}
+                            @endfor
+                        </td>
+                    @foreach($value as $producto)
+                        <td>{{$producto}}</td>
+                    @endforeach
+                        <td>borrar</td>
+                </tr>
                 @endforeach
-                <td>borrar</td>
-            </tr>
 </body>
 @endsection

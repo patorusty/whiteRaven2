@@ -20,10 +20,6 @@ class CartsController extends Controller
     public function index()
 
     {
-
-
-        // return view('cart');
-        // return view('cart', ['carts' => session('carts')]);
         $carts = session('carts');
 
         if ($carts === null){
@@ -49,10 +45,13 @@ class CartsController extends Controller
             'quantity'=> $request->input('quant'),
             'price'=> $request->input('price'),
         ]);
-        $cart = collect($cartarray);
-        session(['carts'=>$cart]);
 
-        $carts = session('carts');
+        if (!session('carts')) {
+            session(['carts'=>collect()]);    
+        } 
+
+        session('carts')->push($cartarray);
+
         return redirect()->route('cart.index');
 
     }

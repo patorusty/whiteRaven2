@@ -63,8 +63,11 @@
                             <a href="{{ route('profile') }}" class="d-flex align-items-center login user">{{ Auth::user()->name }}
                             @endguest
                                     <a href="{{ route('cart.index') }}">
-                                        <i class="fas fa-shopping-cart user"></i>(1)
-                                    </a>
+                                        <i class="fas fa-shopping-cart user"></i>
+                                        @if (session('carts') && session('carts')->count() > 0)
+                                            ({{session('carts')->count()}})
+                                        @endif
+                                    </a>        
                             </a>
                         </div>
 

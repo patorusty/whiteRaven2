@@ -18,12 +18,15 @@ class CartsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
-        // return view('cart');
-        return view('cart', ['carts' => session('carts')]);
         $carts = session('carts');
 
-        // $carts = \Session::get('carts');
+        if ($carts === null){
+            return view('products');
+        } else {
+            return view('cart', ['carts' => session('carts')]);
+        }
     }
 
 
@@ -42,10 +45,13 @@ class CartsController extends Controller
             'quantity'=> $request->input('quant'),
             'price'=> $request->input('price'),
         ]);
-        $cart = collect($cartarray);
-        session(['carts'=>$cart]);
 
-        $carts = session('carts');
+        if (!session('carts')) {
+            session(['carts'=>collect()]);    
+        } 
+
+        session('carts')->push($cartarray);
+
         return redirect()->route('cart.index');
 
     }

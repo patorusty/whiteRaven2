@@ -45,8 +45,8 @@
                             <a class="nav-link" href="{{ route('contacto')}}">contacto</a>
                             </li>
                         </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
+                    <form class="form-inline my-2 my-lg-0" action="{{url('search')}}">
+                            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Buscar..." aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0 boton-search" type="submit">Search</button>
                         </form>
                             @if (auth()->check() && auth()->user()->is_admin)

@@ -16,3 +16,15 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('usuarios', function() {
+
+    $time = 1;
+
+    $usuarios = Cache::remember('users', $time, function () {
+        return \App\User::all()->count();
+    });
+
+
+    return response()->json(["cantidad" => $usuarios]);
+});

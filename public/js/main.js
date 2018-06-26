@@ -1,31 +1,35 @@
+document.addEventListener('DOMContentLoaded', function() {
+
 var formulario = document.forms.registro;
 
-var nombre = formulario.elements.name;
-var apellido = formulario.elements.lastname;
-var email = formulario.elements.email;
-var password = formulario.elements.password;
-var rePassword = formulario.elements.password_confirmation;
-var inputName = document.getElementById("name");
-var errorName = document.getElementById("error_name");
-var inputLastname = document.getElementById("lastname");
-var errorLastname = document.getElementById("error_lastname");
-var inputEmail = document.getElementById("email");
-var errorEmail = document.getElementById("error_email");
-var inputPassword = document.getElementById("password");
-var errorPassword = document.getElementById("error_password");
-var inputRePassword = document.getElementById("password_confirmation");
-var errorRePassword = document.getElementById("error_rePassword");
-var inputImg = document.getElementById("img");
-var errorImg = document.getElementById("error_img");
+if (formulario) {
+    var nombre = formulario.elements.name;
+    var apellido = formulario.elements.lastname;
+    var email = formulario.elements.email;
+    var password = formulario.elements.password;
+    var rePassword = formulario.elements.password_confirmation;
+    var inputName = document.getElementById("name");
+    var errorName = document.getElementById("error_name");
+    var inputLastname = document.getElementById("lastname");
+    var errorLastname = document.getElementById("error_lastname");
+    var inputEmail = document.getElementById("email");
+    var errorEmail = document.getElementById("error_email");
+    var inputPassword = document.getElementById("password");
+    var errorPassword = document.getElementById("error_password");
+    var inputRePassword = document.getElementById("password_confirmation");
+    var errorRePassword = document.getElementById("error_rePassword");
+    var inputImg = document.getElementById("img");
+    var errorImg = document.getElementById("error_img");
 
 
 
-formulario.onsubmit = function submit(e) {
-    
-    if (!validation()){
-        e.preventDefault()
-    }  
+    formulario.onsubmit = function submit(e) {
+        
+        if (!validation()){
+            e.preventDefault()
+        }  
 
+    }
 }
 
 function validation() {
@@ -110,3 +114,26 @@ function checkAvatar(img){
     } return false;
 }
 
+
+var contador = document.getElementById('contador');
+
+function traerUsers() {
+    fetch('http://localhost:8000/api/usuarios')
+    .then(response => response.json())
+    .then(data => {
+        contador.innerHTML = data.cantidad;
+        
+    });
+}
+
+traerUsers()
+setInterval(traerUsers, 30000)
+
+
+
+
+
+
+
+});
+    

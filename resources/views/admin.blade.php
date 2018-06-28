@@ -131,7 +131,6 @@
         <th scope="col">Descripcion</th>
         <th scope="col">Favorito</th>
         <th scope="col">Imagen</th>
-        <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
     </tr>
     </thead>
@@ -152,7 +151,6 @@
             <img src="images/{{$value}}" width="100" alt="">
             @endforeach
         </td>
-        <th><i class="fas fa-edit"></i></th>
         <form action="/products/{{$product->id}}" method="post">
             {{ method_field('delete') }}   
             {{ csrf_field() }}
@@ -184,14 +182,12 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Nombre de la Marca</th>
-                <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
             </tr>
         </thead>
             @foreach ($brands->all() as $brand)
             <tr>
                 <td> {{$brand->name}}</td>
-                <th><i class="fas fa-edit"></i></th>
                 <form action="/brands/{{$brand->id}}" method="post">
                     {{ method_field('delete') }}   
                     {{ csrf_field() }}
@@ -222,14 +218,12 @@
             <thead class="thead-dark">
             <tr>
                 <th scope="col">Nombre de Categoria</th>
-                <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
             </tr>
             </thead>
                 @foreach ($categories->all() as $category)
                 <tr>
                     <td> {{ $category->name }}</td>
-                    <th><i class="fas fa-edit"></i></th>
                     <form action="/categories/{{$category->id}}" method="post">
                         {{ method_field('delete') }}   
                         {{ csrf_field() }}
@@ -268,7 +262,6 @@
                 <tr>
                     <th scope="col">Nombre de la SubCategoria</th>
                     <th scope="col">Categoria Padre</th>
-                    <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
                 </tr>
             </thead>
@@ -276,7 +269,6 @@
                 <tr>
                     <td> {{ $subcategory->name }}</td>
                     <td> {{ $subcategory->parent_id }}</td>
-                    <th><i class="fas fa-edit"></i></th>
                     <form action="/subcategories/{{$subcategory->id}}" method="post">
                         {{ method_field('delete') }}   
                         {{ csrf_field() }}

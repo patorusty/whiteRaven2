@@ -29,7 +29,7 @@ Route::resource('products','ProductsController');
 Route::resource('subcategories', 'SubCategoriesController');
 Route::resource('brands', 'BrandsController');
 Route::resource('cart', 'CartsController');
-
+Route::resource('order', 'OrderController');
 
 
 

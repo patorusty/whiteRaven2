@@ -11,10 +11,7 @@
     <div class="row mt-3 mx-auto">
         <div class="col-md-6">
             <div class="col-md-12 d-flex justify-content-center">
-                    @foreach (explode(" , ", $product->img)  as $value)
-                    <img src='{{asset('images/' . $value)}}' width="100" alt="" class="img-product rounded" alt="">
-                    @endforeach
-            {{-- <img src="{{asset('images/' . $product->img)}}" class="img-product rounded" alt=""> --}}
+                <img src='{{asset('images/' . $product->img)}}' width="300" alt="" class="img-product rounded" alt="">
             </div>
         </div>
         <div class="col-md-6">
@@ -26,12 +23,13 @@
                 </h3>
                 <h3 class="text-product" >
                     <input type= 'number' style="visibility:hidden" name='price' value='{{$product->price}}'>$ {{$product->price}}
+                    <input type= 'number' style="visibility:hidden" name='code' value='{{$product->code}}'>
                 </h3>
                 <div class="row mt-6 mt-1">
                     <div class="col-sm-6">
                         <div class="d-flex flex-row">
-                            <input type="number" name="quant"  value= min="1" max="10">
-                            <ion-icon name="add" size="small" class="masmenos"></ion-icon>
+                            <input type="number" name="quant"  value=0  max="10">
+                            {{-- <ion-icon name="add" size="medium" class="masmenos"></ion-icon> --}}
                         </div>
                         <div>
                             <p>El Stock disponible de este producto es {{$product->stock}}</p>

@@ -71,12 +71,12 @@
     </div>
 </div>
     <div class="form-group row">
-        <label for="name" class="col-3 col-form-label {{ $errors->has('codigo') ? ' is-invalid' : '' }}">Codigo de producto: </label>
+        <label for="name" class="col-3 col-form-label {{ $errors->has('code') ? ' is-invalid' : '' }}">Codigo de producto: </label>
             <div class="col-4">
-        <input type="integer" name="codigo" id="codigo"/>
-        @if ($errors->has('codigo'))
+        <input type="integer" name="code" id="code"/>
+        @if ($errors->has('code'))
             <span class="help-block">
-                <strong>{{ $errors->first('codigo') }}</strong>
+                <strong>{{ $errors->first('code') }}</strong>
             </span>
         @endif
     </div>
@@ -101,18 +101,10 @@
 <div class="form-group row">
         <label for="avatar" class="col-3 col-form-label col-xs-12">Foto 1:</label>
         <div class="col-4">
-            <input type="file" name="img1">
+            <input type="file" name="img">
         </div>
 </div>
-<div class="form-group row">
-    <label for="avatar" class="col-3 col-form-label col-xs-12">Foto 2:</label>
-    <div class="col-4">
-        <input type="file" name="img2">
-    </div>
-</div>
-
     <button type="submit" class="btn btn-dark">Crear</button>
-    
 </form>
 <br>
 <div><hr></div>
@@ -131,14 +123,13 @@
         <th scope="col">Descripcion</th>
         <th scope="col">Favorito</th>
         <th scope="col">Imagen</th>
-        <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
     </tr>
     </thead>
     <tbody>
     @foreach ($products->all() as $product)
     <tr>
-        <td> {{ $product->codigo }}</td>
+        <td> {{ $product->code }}</td>
         <td> {{ $product->name }}</td>
         <td> {{ $product->brand_id }}</td>
         <td> {{ $product->category_id }}</td>
@@ -148,11 +139,8 @@
         <td> {{ $product->description }}</td>
         <td> {{ $product->favourite }}</td>
         <td>
-            @foreach (explode(" , ", $product->img)  as $value)
-            <img src="images/{{$value}}" width="100" alt="">
-            @endforeach
+            <img src="images/{{$product->img}}" width="100" alt="">
         </td>
-        <th><i class="fas fa-edit"></i></th>
         <form action="/products/{{$product->id}}" method="post">
             {{ method_field('delete') }}   
             {{ csrf_field() }}
@@ -184,14 +172,12 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Nombre de la Marca</th>
-                <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
             </tr>
         </thead>
             @foreach ($brands->all() as $brand)
             <tr>
                 <td> {{$brand->name}}</td>
-                <th><i class="fas fa-edit"></i></th>
                 <form action="/brands/{{$brand->id}}" method="post">
                     {{ method_field('delete') }}   
                     {{ csrf_field() }}
@@ -222,14 +208,12 @@
             <thead class="thead-dark">
             <tr>
                 <th scope="col">Nombre de Categoria</th>
-                <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
             </tr>
             </thead>
                 @foreach ($categories->all() as $category)
                 <tr>
                     <td> {{ $category->name }}</td>
-                    <th><i class="fas fa-edit"></i></th>
                     <form action="/categories/{{$category->id}}" method="post">
                         {{ method_field('delete') }}   
                         {{ csrf_field() }}
@@ -268,7 +252,6 @@
                 <tr>
                     <th scope="col">Nombre de la SubCategoria</th>
                     <th scope="col">Categoria Padre</th>
-                    <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
                 </tr>
             </thead>
@@ -276,7 +259,6 @@
                 <tr>
                     <td> {{ $subcategory->name }}</td>
                     <td> {{ $subcategory->parent_id }}</td>
-                    <th><i class="fas fa-edit"></i></th>
                     <form action="/subcategories/{{$subcategory->id}}" method="post">
                         {{ method_field('delete') }}   
                         {{ csrf_field() }}

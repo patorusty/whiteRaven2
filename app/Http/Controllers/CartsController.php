@@ -23,7 +23,7 @@ class CartsController extends Controller
         $carts = session('carts');
 
         if ($carts === null){
-            return view('products');
+            return view('home');
         } else {
             return view('cart', ['carts' => session('carts')]);
         }
@@ -32,15 +32,17 @@ class CartsController extends Controller
 
     public function store(Request $request)
     {
+        $carts = session('carts');
 
-        // $cart = (object)array(
-        //     'name'=> $request->input('name'),
-        //     'quantity'=> $request->input('quant'),
-        //     'price'=> $request->input('price'),
-        // );
-
-
+        if ($carts === null){
+            $nro = 1;
+        } else{
+            $nro = session('carts')->count()+1;
+        }
+    
         $cartarray = ([
+            'id' => $nro,
+            'code' => $request->input('code'),
             'name'=> $request->input('name'),
             'quantity'=> $request->input('quant'),
             'price'=> $request->input('price'),
@@ -51,10 +53,14 @@ class CartsController extends Controller
         } 
 
         session('carts')->push($cartarray);
-
-        return redirect()->route('cart.index');
+        
+        return redirect()->back();
 
     }
+    public function orden(){
+        dd($carts);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -114,8 +120,19 @@ class CartsController extends Controller
      * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    // public function destroy(Cart $cart)
+    // {
+    //     session('carts')->delete();
+    // }
+
+    public function destroy($id)
     {
-        //
+        foreach(session('carts') as $key => $value){
+            if ($value['id'] == $id) {
+                session('carts')->forget($key);
+            }
+        }
+        return redirect('cart');
+
     }
 }

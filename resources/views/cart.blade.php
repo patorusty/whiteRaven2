@@ -8,7 +8,8 @@
                     <th>Codigo Producto</th>
                     <th>Producto</th>
                     <th>Cantidad</th>
-                    <th>Precio</th>
+                    <th>Precio Unitario</th>
+                    <th>Precio Total</th>
                     <th>Borrar</th>
                 </tr>
             </thead>
@@ -17,7 +18,6 @@
                         @foreach($value as $producto)
                             <td>{{$producto}}</td>
                         @endforeach
-                        {{-- {{dd($value['code'])}} --}}
                         <form action="/cart/{{$value['id']}}" method="post">
                                 {{ method_field('delete') }}   
                                 {{ csrf_field() }}
@@ -26,11 +26,17 @@
                         </td>
                     </tr>
                 @endforeach
+    </table>
+    <div>
+                Precio Final: $
+            @foreach($carts as $key => $value)
+                {{$value['totalprice']}}
+            @endforeach
+    </div>
                 <form id="orders" name="orders" method="POST" action="{{route('order.store')}}" >
-                        <input type= 'text' style="visibility:hidden" name='user_id' value=''>
-                        <input type= 'text' style="visibility:hidden" name='product_id' value=''> 
-                        <input type= 'text' style="visibility:hidden" name='price' value=''> 
-                        <a  class="boton-inicio"  type="submit" >COMPRAR</a>
+                        {{ csrf_field() }}  
+                        <input type= 'text' style="visibility:hidden" name='product_id' value='{{$value['id']}}'>
+                        <input type= 'text' style="visibility:hidden" name='price' value='800'>
+                        <button  class="boton-inicio"  type="submit" >COMPRAR</button>
                 </form>
-
 @endsection

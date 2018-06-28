@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
 use App\Cart;
 use App\Brand;
+use App\Order;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Collection as Collection;
+
 
 class OrderController extends Controller
 {
@@ -39,11 +42,22 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        $fecha = date("d/m/Y");
+        $idusuario = Auth::user()->id; 
+        // dd($idusuario);
+
+
         $order = Order::create([
-            'user_id' => $request->input('user_id'),
+            'date' => $fecha,
+            'user_id' => $idusuario,
             'product_id' => $request->input('product_id'),
             'price' => $request->input('price'),
         ]);
+
+        foreach(session('carts') as $key => $value){
+            session('carts')->forget($key);
+        }
+
         return redirect()->route('profile');
 
     }

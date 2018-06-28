@@ -39,13 +39,14 @@ class CartsController extends Controller
         } else{
             $nro = session('carts')->count()+1;
         }
-    
+
         $cartarray = ([
             'id' => $nro,
             'code' => $request->input('code'),
             'name'=> $request->input('name'),
             'quantity'=> $request->input('quant'),
             'price'=> $request->input('price'),
+            'totalprice'=> $request->input('price') * $request->input('quant'),
         ]);
 
         if (!session('carts')) {

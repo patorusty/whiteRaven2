@@ -578,6 +578,18 @@ a:hover {
     list-style-type: none;
 }
 
+.bg-color-r {
+    background-color: #E22025 !important;
+}
+
+.bg-color-b {
+    background-color: #3B279E !important;
+}
+
+.bg-color-g {
+    background-color: #22A100 !important;
+}
+
 @media (max-width: 992px) {
     .active {
         text-align: center;

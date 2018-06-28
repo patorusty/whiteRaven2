@@ -73,6 +73,27 @@ function validation() {
     } 
 }
 
+function contactValidator() {
+    if (checkNombre(nombre.value)) {
+        inputName.className += ' is-valid ';
+    } else {
+        inputName.className += ' is-invalid ';
+        errorName.innerHTML = 'El nombre ingresado es incorrecto';
+    }
+    if (checkApellido(apellido.value)) {
+        inputLastname.className += ' is-valid ';
+    } else {
+        inputLastname.className += ' is-invalid ';
+        errorLastname.innerHTML = 'El apellido ingresado es incorrecto';
+    }
+    if (checkEmail(email.value)) {
+        inputEmail.className += ' is-valid ';
+    } else {
+        inputEmail.className += ' is-invalid ';
+        errorEmail.innerHTML = 'El email ingresado es incorrecto';
+    }
+}
+
 
 function checkNombre(nombre){
     var regexNombre = /^[a-zA-Z ]{2,30}$/;
@@ -112,6 +133,13 @@ function checkAvatar(img){
     if (img){
         return true
     } return false;
+}
+
+function checkMensaje(mensaje){
+    var regexMensaje = /^[A-Za-z0-9]{2,800}$/;
+    if (regexMensaje.test(mensaje)){
+        return true;
+    } else return false;
 }
 
 

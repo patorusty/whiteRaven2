@@ -8,30 +8,34 @@
             <p>CONTÁCTENOS</p>
         </div>
             <div class="formulario">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST"  id="contacto" name="contacto" enctype="multipart/form-data">
                     @csrf
                     <div class="div-form">
                         <Label for="nombre">Nombre:</Label>
-                        <input type="text" name="name" class="input-registro form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" input align='right' value="<?php if (isset($_POST['nombre'])) {echo $_POST['nombre'];}?>"/>  
+                        <input type="text" name="name" id="name" class="input-registro form-control " input align='right' value=""/>
+                        <span id="error_name" class="invalid-feedback"></span>
                     </div>
 
                     <div class="div-form">
                         <Label for="apellido">Apellido:</Label>
-                        <input type="text" name="lastname" class="input-registro form-control {{ $errors->has('lastname') ? ' is-invalid' : '' }}" input align='right' value=""/>
+                        <input type="text" name="lastname" class="input-registro form-control " input align='right' value=""/>
+                        <span id="error_lastname" class="invalid-feedback"></span>
                     </div>
                         <div class="errores">
                             <span></span><br>
                         </div>
                     <div class="div-form">
                         <Label for="email">Email:</Label>
-                        <input type="text" name="email" class="input-registro form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" input align='right' value=""/>
+                        <input type="text" name="email" class="input-registro form-control " input align='right' value=""/>
+                        <span id="error_email" class="invalid-feedback"></span>
                     </div>
                         <div class="errores">
                             <span></span><br>
                         </div>
                     <div class="div-form">
-                            <Label for="email">Mensaje:</Label>
-                            <textarea name="comentarios" rows="5" cols="50"></textarea>                   
+                            <Label for="message">Mensaje:</Label>
+                            <textarea name="comentarios" rows="5" cols="50"></textarea> 
+                            <span id="error_message" class="invalid-feedback"></span>                  
                     </div>
                         <div class="errores">
                                 <span></span><br>

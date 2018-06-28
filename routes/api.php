@@ -19,12 +19,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('usuarios', function() {
 
-    $time = 1;
+    // $time = 1;
 
-    $usuarios = Cache::remember('users', $time, function () {
-        return \App\User::all()->count();
-    });
-
+    // $usuarios = Cache::remember('users', $time, function () {
+    //     return \App\User::all()->count();
+    // });
+    $usuarios = \App\User::all()->count();
+        // return $usuarios;
 
     return response()->json(["cantidad" => $usuarios]);
 });

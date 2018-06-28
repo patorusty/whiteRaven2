@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\SubCategoriesController;
+// use App\Http\Controllers\SubCategoriesController;
 
 /*
 |--------------------------------------------------------------------------

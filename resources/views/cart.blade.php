@@ -5,6 +5,7 @@
             <thead>
                 <tr>
                     <th>Item</th>
+                    <th>Codigo Producto</th>
                     <th>Producto</th>
                     <th>Cantidad</th>
                     <th>Precio</th>
@@ -16,7 +17,7 @@
                         @foreach($value as $producto)
                             <td>{{$producto}}</td>
                         @endforeach
-                        {{-- {{dd($value['name'])}} --}}
+                        {{-- {{dd($value['code'])}} --}}
                         <form action="/cart/{{$value['id']}}" method="post">
                                 {{ method_field('delete') }}   
                                 {{ csrf_field() }}

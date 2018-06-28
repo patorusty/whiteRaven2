@@ -99,17 +99,8 @@ class ProductsController extends Controller
     {
         $folder = 'products';
 
-        $img1 = $request->file('img1')->storePublicly($folder, 'assets');
-        if (!$request->file('img2')){
-            $img2 = " ";
-        } elseif ($request->file('img2')) {
-            $img2 = $request->file('img2')->storePublicly($folder, 'assets');
-        } 
-        $imagenes = collect([$img1, $img2]);
+        $img = $request->file('img')->storePublicly($folder, 'assets');
 
-        $array = $imagenes->implode(" , ");
-
-        // dd($array);
         
         //Codigo para verificar el checkbox!
         if ($request['favourite'] == 1) {
@@ -129,7 +120,7 @@ class ProductsController extends Controller
             'favourite' => 'string',
             'description' => 'required|string|max:255',
             'codigo' => 'required|integer|unique:products',
-            'img1' => 'required|image'
+            'img' => 'required|image'
         ]);
 
 
@@ -142,8 +133,8 @@ class ProductsController extends Controller
             'stock'=> $request->input('stock'),
             'favourite'=> $favourite,
             'description'=> $request->input('description'),
-            'codigo'=> $request->input('codigo'),
-            'img' => $array
+            'code'=> $request->input('code'),
+            'img' => $img
         ]);
 
         $products = Product::All();

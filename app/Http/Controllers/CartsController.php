@@ -42,6 +42,7 @@ class CartsController extends Controller
     
         $cartarray = ([
             'id' => $nro,
+            'code' => $request->input('code'),
             'name'=> $request->input('name'),
             'quantity'=> $request->input('quant'),
             'price'=> $request->input('price'),
@@ -52,8 +53,8 @@ class CartsController extends Controller
         } 
 
         session('carts')->push($cartarray);
-
-        return redirect()->route('cart.index');
+        
+        return redirect()->back();
 
     }
     public function orden(){

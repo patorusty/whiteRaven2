@@ -71,12 +71,12 @@
     </div>
 </div>
     <div class="form-group row">
-        <label for="name" class="col-3 col-form-label {{ $errors->has('codigo') ? ' is-invalid' : '' }}">Codigo de producto: </label>
+        <label for="name" class="col-3 col-form-label {{ $errors->has('code') ? ' is-invalid' : '' }}">Codigo de producto: </label>
             <div class="col-4">
-        <input type="integer" name="codigo" id="codigo"/>
-        @if ($errors->has('codigo'))
+        <input type="integer" name="code" id="code"/>
+        @if ($errors->has('code'))
             <span class="help-block">
-                <strong>{{ $errors->first('codigo') }}</strong>
+                <strong>{{ $errors->first('code') }}</strong>
             </span>
         @endif
     </div>
@@ -101,18 +101,10 @@
 <div class="form-group row">
         <label for="avatar" class="col-3 col-form-label col-xs-12">Foto 1:</label>
         <div class="col-4">
-            <input type="file" name="img1">
+            <input type="file" name="img">
         </div>
 </div>
-<div class="form-group row">
-    <label for="avatar" class="col-3 col-form-label col-xs-12">Foto 2:</label>
-    <div class="col-4">
-        <input type="file" name="img2">
-    </div>
-</div>
-
     <button type="submit" class="btn btn-dark">Crear</button>
-    
 </form>
 <br>
 <div><hr></div>
@@ -137,7 +129,7 @@
     <tbody>
     @foreach ($products->all() as $product)
     <tr>
-        <td> {{ $product->codigo }}</td>
+        <td> {{ $product->code }}</td>
         <td> {{ $product->name }}</td>
         <td> {{ $product->brand_id }}</td>
         <td> {{ $product->category_id }}</td>
@@ -147,9 +139,7 @@
         <td> {{ $product->description }}</td>
         <td> {{ $product->favourite }}</td>
         <td>
-            @foreach (explode(" , ", $product->img)  as $value)
-            <img src="images/{{$value}}" width="100" alt="">
-            @endforeach
+            <img src="images/{{$product->img}}" width="100" alt="">
         </td>
         <form action="/products/{{$product->id}}" method="post">
             {{ method_field('delete') }}   

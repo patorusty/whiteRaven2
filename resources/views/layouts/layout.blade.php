@@ -45,8 +45,8 @@
                             <a class="nav-link" href="{{ route('contacto')}}">contacto</a>
                             </li>
                         </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
+                    <form class="form-inline my-2 my-lg-0" action="{{url('search')}}">
+                            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Buscar..." aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0 boton-search" type="submit">Search</button>
                         </form>
                             @if (auth()->check() && auth()->user()->is_admin)
@@ -85,6 +85,8 @@
                     <i class="fab fa-instagram fa-2x socialmedia"></i>
                 </a>
                 <p class="texto-footer">Copyright® Sarbros Desing</p>
+                <div id="" class="d-inline texto-footer">Usuarios registrados:</div>
+                <div id="contador" class="d-inline texto-footer"></div>
         </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

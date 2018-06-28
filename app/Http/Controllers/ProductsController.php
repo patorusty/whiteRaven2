@@ -6,6 +6,7 @@ use App\Brand;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection as Collection;
 
 class ProductsController extends Controller
@@ -70,6 +71,17 @@ class ProductsController extends Controller
     public function edit(Product $product)
     {
         //
+    }
+
+    public function search (Request $request)
+    {
+        $search = $request->search;
+        // dd($search);
+        $products = DB::table('products')
+        ->where('name', 'like', '%' . $search . '%')
+        ->get();
+        // dd($products);
+        return view('products.search', compact('products','search'));
     }
 
     /**

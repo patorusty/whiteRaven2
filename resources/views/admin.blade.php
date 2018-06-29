@@ -9,12 +9,12 @@
     <div class="form-group row">
         <label for="name" class="col-3 col-form-label">Nombre del Producto:</label>
         <div class="col-4">
-        <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="name"/>
-        @if ($errors->has('name'))
+        <input type="text" class="form-control " name="name" id="name"/>
+        {{-- @if ($errors->has('name'))
             <span class="help-block">
                 <strong>{{ $errors->first('name') }}</strong>
             </span>
-        @endif
+        @endif --}}
     </div>
     </div>
     <div class="form-group row">
@@ -133,7 +133,7 @@
         <td> {{ $product->name }}</td>
         <td> {{ $product->brand_id }}</td>
         <td> {{ $product->category_id }}</td>
-        <td> {{ $product->subcategory_id }}</td>
+        <td> {{ $product->sub_category_id }}</td>
         <td> {{ $product->price }}</td>
         <td> {{ $product->stock }}</td>
         <td> {{ $product->description }}</td>

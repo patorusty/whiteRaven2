@@ -24,7 +24,11 @@ class ProfileController extends Controller
 
         if (!auth()->check()){
             return redirect()->route('login');
-        } else{
+        } elseif($orders == null && $product == null){
+            $orders = ('');
+            $product = ('');
+            return view('profile', ['users' => Auth::user()]);
+        }else{
             return view('profile', ['users' => Auth::user(),
                                     'orders' => $orders,
                                     'product' => $product,

@@ -101,7 +101,6 @@ class ProductsController extends Controller
 
         $img = $request->file('img')->storePublicly($folder, 'assets');
 
-        
         //Codigo para verificar el checkbox!
         if ($request['favourite'] == 1) {
             $favourite = "Si"; 
@@ -119,7 +118,7 @@ class ProductsController extends Controller
             'stock' => 'required|integer',
             'favourite' => 'string',
             'description' => 'required|string|max:255',
-            'codigo' => 'required|integer|unique:products',
+            'code' => 'required|integer|unique:products',
             'img' => 'required|image'
         ]);
 
@@ -136,7 +135,6 @@ class ProductsController extends Controller
             'code'=> $request->input('code'),
             'img' => $img
         ]);
-
         $products = Product::All();
 
         return redirect()->route('admin.index');

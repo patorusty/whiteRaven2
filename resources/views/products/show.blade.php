@@ -38,7 +38,9 @@
                 </div>
                 <button type="submit" class="btn btn-dark mt-5">Agregar al Carrito</button>
             </form>
-                <p class="text-product mt-5">{{$product->description}}</p>
+            <div>
+            Descripcion: <p class="text-product mt-5">{{$product->description}}</p>
+            </div>
         </div>
     </div>
 </div>

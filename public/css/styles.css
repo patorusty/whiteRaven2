@@ -592,6 +592,9 @@ a:hover {
 .precio::before {
     content: " $ ";
 }
+.list-order {
+    list-style: none;
+}
 
 @media (max-width: 992px) {
     .active {

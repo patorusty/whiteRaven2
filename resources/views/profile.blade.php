@@ -40,14 +40,14 @@
                                     <td>
                                         <ul>
                                             @foreach($product as $value)
-                                            <li>{{$value}}</li>
+                                            <li class="list-order">{{$value}}</li>
                                             @endforeach
                                         </ul>
                                     </td>
                                     <td>{{$order->price}}</td>
                             </tr>
                             @endforeach
-                 </table>
+                </table>
         </div>
     </div>
 </div>

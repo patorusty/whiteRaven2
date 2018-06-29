@@ -78,8 +78,9 @@
 @yield('content')
 </div>
         <footer class="footer">
-                <div class="d-flex flex-column align-items-center">
-                    <div>
+                <div class="div-footer d-flex justify-content-around">
+                    <div class="mb-3">
+                    <h2 class="titulos-footer mt-3">Follow Us</h2>
                 <a href="" class="">
                     <i class="fab fa-facebook-square fa-2x socialmedia"></i>
                 </a>
@@ -87,11 +88,20 @@
                     <i class="fab fa-instagram fa-2x socialmedia"></i>
                 </a>
             </div>
-                <p class="texto-footer">Copyright® Sarbros Desing</p>
-                <div>
-                <div id="" class="d-inline texto-footer">Usuarios registrados:</div>
-                <div id="contador" class="d-inline texto-footer"></div>
+            <div>
+            <p class="texto-footer mt-3">Copyright® Sarbros Desing</p>
+            <div id="" class="d-inline texto-footer">Usuarios registrados:</div>
+            <div id="contador" class="d-inline texto-footer"></div>
+            <div>
             </div>
+        </div>
+            <div class="mt-3 pagos">
+                            <img class="pago mr-1" src="{{asset("images/pagos/amex.svg")}}" alt="">
+                            <img class="pago mr-1" src="{{asset("images/pagos/visa.svg")}}" alt="">
+                            <img class="pago mr-1" src="{{asset("images/pagos/mastercard.svg")}}" alt="">
+                            <img class="pago" src="{{asset("images/pagos/paypal.svg")}}" alt="">
+                </div>
+            
         </div>
         </footer>
 

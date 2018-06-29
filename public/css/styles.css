@@ -263,7 +263,6 @@ a:hover {
 
 .socialmedia {
     color: white;
-    padding: 10px 5px 10px 5px;
     text-align: center;
 }
 
@@ -276,6 +275,12 @@ a:hover {
     color: grey;
     text-align: center;
     font-size: 0.8em
+}
+
+.titulos-footer {
+    font-family: 'Open Sans', sans-serif;
+    color: grey;
+    text-align: center;
 }
 
 .somos {
@@ -317,6 +322,14 @@ a:hover {
 }
 
 .paginaregistro {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex: 1 0 auto;
+}
+
+.paginaperfil {
     margin-top: 5px;
     display: flex;
     justify-content: center;
@@ -592,6 +605,15 @@ a:hover {
 .precio::before {
     content: " $ ";
 }
+.list-order {
+    list-style: none;
+}
+
+.pago  {
+    width: 40px;
+
+} 
+
 
 @media (max-width: 992px) {
     .active {
@@ -707,5 +729,18 @@ a:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
+        }
+        .pagos {
+            display: none;
+        }
+        .div-footer {
+            flex-direction: column;
+        }
+        .paginaperfil {
+            flex-direction: column;
+            justify-content: flex-start
+        }
+        .miperfil {
+            margin-top: 5px;
         }
 }

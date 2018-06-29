@@ -4,11 +4,11 @@
     <div class="d-flex flex-column align-items-center">
     <h1 class="mt-3">CART</h1>
     <div class="col-md-8">
-        <table class="table table-hover mt-3">
+        <table class="table table-hover table-striped mt-3">
             <thead class="thead-dark">
                 <tr>
                     <th>Item</th>
-                    <th>Codigo Producto</th>
+                    <th>Codigo</th>
                     <th>Producto</th>
                     <th>Cantidad</th>
                     <th>Precio Unitario</th>

@@ -18,10 +18,8 @@ class ProfileController extends Controller
         ->get();
 
         $productos = $orders->pluck('product_id');
-        // dd($productos);
         foreach ($productos as $key => $value) {
             $product = explode(", ", $value);
-            // dd($product);
             }
 
         if (!auth()->check()){
@@ -32,6 +30,5 @@ class ProfileController extends Controller
                                     'product' => $product,
             ]);
         }
-
     }
 }

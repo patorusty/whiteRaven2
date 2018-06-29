@@ -47,7 +47,7 @@
                     <div class="div-form">
                             <label for="password" class="col-md-4 control-label">Password</label>
                             <div class="col-md-8">
-                                <input id="password" type="text" class="form-control " name="password" value="" autofocus>
+                                <input id="password" type="password" class="form-control " name="password" value="" autofocus>
                                 <span id="error_password" class="invalid-feedback"></span>
                                 {{-- @if ($errors->has('password'))
                                     <span class="help-block">
@@ -59,7 +59,7 @@
                     <div class="div-form">
                             <label for="password_confirmation" class="col-md-4 control-label">Reingrese Password</label>
                             <div class="col-md-8">
-                                <input id="password_confirmation" type="text" class="form-control " name="password_confirmation" value="" autofocus>
+                                <input id="password_confirmation" type="password" class="form-control " name="password_confirmation" value="" autofocus>
                                 <span id="error_rePassword" class="invalid-feedback"></span>
                                 {{-- @if ($errors->has('password_confirmation'))
                                     <span class="help-block">

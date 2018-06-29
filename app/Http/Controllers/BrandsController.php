@@ -44,11 +44,11 @@ class BrandsController extends Controller
     public function storeBrands(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:brands',
+            'brands' => 'required',
         ]);
 
         $brand = Brand::create([
-            'name'=> $request->input('name'),
+            'name'=> $request->input('brands'),
         ]);
 
         $brands = Brand::All();

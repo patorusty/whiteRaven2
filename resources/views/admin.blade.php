@@ -9,10 +9,10 @@
     <div class="form-group row">
         <label for="name" class="col-3 col-form-label">Nombre del Producto:</label>
         <div class="col-4">
-        <input type="text" class="form-control " name="name" id="name"/>
-        {{-- @if ($errors->has('name'))
+        <input type="text" class="form-control" name="name" id="nombre"/>
+        {{-- @if ($errors->has('nombre'))
             <span class="help-block">
-                <strong>{{ $errors->first('name') }}</strong>
+                <strong>{{ $errors->first('nombre') }}</strong>
             </span>
         @endif --}}
     </div>
@@ -159,7 +159,7 @@
     <form id="brands" name="brands" method="POST" action="{{route('admin.brands')}}">
     {{ csrf_field() }}
     <div class="form-group row">
-    <label for="name" class="col-3 col-form-label">Nombre de la Marca:</label>
+    <label for="brands" class="col-3 col-form-label">Nombre de la Marca:</label>
     <div class="col-4">
     <input type="text" name="brands" class="form-control" id="name"/>
 </div>
@@ -231,7 +231,7 @@
     <div class="form-group row">
         <label for="name" class="col-3 col-form-label">Nombre de Sub Categoria:</label>
         <div class="col-4">
-        <input type="text" name="subcategories" class="form-control" id="name"/>
+        <input type="text" name="sub_categories" class="form-control" id="name"/>
         </div>
     </div>
     <div class="form-group row">
@@ -239,7 +239,7 @@
         <div class="col-4">
         <select name="category">
             @foreach ($categories->all() as $categoria)
-                <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
+                <option value= "{{ $categoria->name }}">{{ $categoria->name }}</option>
             @endforeach
         </select>
     </div>
@@ -263,7 +263,8 @@
                         {{ method_field('delete') }}   
                         {{ csrf_field() }}
                         <th><button type="submit" class="fas fa-trash-alt"></button></th>
-                    </form>                  </tr>
+                    </form>                  
+                </tr>
                 @endforeach
         </table>   
 <br>

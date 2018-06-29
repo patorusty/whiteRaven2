@@ -25,12 +25,13 @@ class CategoriesController extends Controller
 
     public function storeCategories(Request $request)
     {
+
         $this->validate($request, [
-            'name' => 'required',
+            'categories' => 'required',
         ]);
 
         $category = Category::create([
-            'name'=> $request->input('name'),
+            'name'=> $request->input('categories'),
         ]);
 
         $categories = Category::All();

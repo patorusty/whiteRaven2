@@ -81,12 +81,12 @@ class SubCategoriesController extends Controller
     public function storeSubCategories(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:sub_categories',
+            'sub_categories' => 'required',
             'category' => 'required',
         ]);
 
         $category = SubCategory::create([
-            'name'=> $request->input('name'),
+            'name'=> $request->input('sub_categories'),
             'parent_id'=> $request->input('category'),
         ]);
 

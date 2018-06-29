@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Product;
 use App\Category;
+use App\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection as Collection;
@@ -20,10 +21,12 @@ class ProductsController extends Controller
     {
         $products = Product::All();
         $categories = Category::All();
+        $subcategories = SubCategory::All();
         $brands = Brand::All();
         return view('products.index', 
                     ['categories' => $categories, 
                         'products' => $products,
+                        'subcategories' => $subcategories,
                         'brands' => $brands,]);
         $photos = Storage::get('storage/app/products');
     }
@@ -76,11 +79,9 @@ class ProductsController extends Controller
     public function search (Request $request)
     {
         $search = $request->search;
-        // dd($search);
         $products = DB::table('products')
         ->where('name', 'like', '%' . $search . '%')
         ->get();
-        // dd($products);
         return view('products.search', compact('products','search'));
     }
 

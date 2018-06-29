@@ -34,7 +34,6 @@
                                 <th scope="col">Precio</th>                     
                         </tr>
                     </thead>
-                    <tbody>
                             @foreach ($orders->all() as $order)
                             <tr>
                                     <td>{{$order->date}}</td>
@@ -48,12 +47,10 @@
                                     <td>{{$order->price}}</td>
                             </tr>
                             @endforeach
-                    </tbody>
-
+                 </table>
         </div>
     </div>
 </div>
-
 @endsection
 
 

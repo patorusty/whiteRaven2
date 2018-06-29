@@ -77,7 +77,7 @@
         <div class="container">
 @yield('content')
 </div>
-        <footer class="footer py-2 fixed-bottom">
+        <footer class="footer">
                 <a href="" class="socialmedia">
                     <i class="fab fa-facebook-square fa-2x socialmedia"></i>
                 </a>

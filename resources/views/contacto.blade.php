@@ -11,36 +11,33 @@
                 <form action="" method="POST"  id="contacto" name="contacto" enctype="multipart/form-data">
                     @csrf
                     <div class="div-form">
-                        <Label for="nombre">Nombre:</Label>
-                        <input type="text" name="name" id="name" class="input-registro form-control " input align='right' value=""/>
+                        <Label for="nombre" class="col-md-4 control-label">Nombre:</Label>
+                        <div class="col-md-8">
+                        <input type="text" name="name" id="name" class="form-control " input align='right' value="" id="name"/>
                         <span id="error_name" class="invalid-feedback"></span>
+                        </div>
                     </div>
-
                     <div class="div-form">
-                        <Label for="apellido">Apellido:</Label>
-                        <input type="text" name="lastname" class="input-registro form-control " input align='right' value=""/>
+                        <Label for="apellido" class="col-md-4 control-label">Apellido:</Label>
+                        <div class="col-md-8">
+                        <input type="text" name="lastname" class="form-control " input align='right' value="" id="lastname"/>
                         <span id="error_lastname" class="invalid-feedback"></span>
-                    </div>
-                        <div class="errores">
-                            <span></span><br>
                         </div>
+                    </div>
                     <div class="div-form">
-                        <Label for="email">Email:</Label>
-                        <input type="text" name="email" class="input-registro form-control " input align='right' value=""/>
+                        <Label for="email" class="col-md-4 control-label">Email:</Label>
+                        <div class="col-md-8">
+                        <input type="text" name="email" class="form-control " input align='right' value="" id="email"/>
                         <span id="error_email" class="invalid-feedback"></span>
-                    </div>
-                        <div class="errores">
-                            <span></span><br>
                         </div>
+                    </div>
                     <div class="div-form">
-                            <Label for="message">Mensaje:</Label>
-                            <textarea name="comentarios" rows="5" cols="50"></textarea> 
-                            <span id="error_message" class="invalid-feedback"></span>                  
+                            <Label for="message" class="col-md-4 control-label">Mensaje:</Label>
+                            <div class="col-md-8">
+                            <textarea name="message" class="form-control " rows="3" id="message"></textarea> 
+                            <span id="error_message" class="invalid-feedback"></span>   
+                            </div>               
                     </div>
-                        <div class="errores">
-                                <span></span><br>
-                        </div>
-                    
                     <input type="submit" value="ENVIAR MENSAJE" name = "submit" class="boton-inicio">
                 </form>
             </div>

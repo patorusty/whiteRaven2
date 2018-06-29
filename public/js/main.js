@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
 var formulario = document.forms.registro;
+var contacto = document.forms.contacto;
 
 if (formulario) {
     var nombre = formulario.elements.name;
@@ -21,8 +22,6 @@ if (formulario) {
     var inputImg = document.getElementById("img");
     var errorImg = document.getElementById("error_img");
 
-
-
     formulario.onsubmit = function submit(e) {
         
         if (!validation()){
@@ -31,6 +30,32 @@ if (formulario) {
 
     }
 }
+
+if (contacto) {
+
+    var nombre2 = contacto.elements.name;
+    var apellido2 = contacto.elements.lastname;
+    var email2 = contacto.elements.email;
+    var message = contacto.elements.message;    
+    var inputName = document.getElementById("name");
+    var errorName = document.getElementById("error_name");
+    var inputLastname = document.getElementById("lastname");
+    var errorLastname = document.getElementById("error_lastname");
+    var inputEmail = document.getElementById("email");
+    var errorEmail = document.getElementById("error_email");
+    var inputMessage = document.getElementById("message");
+    var errorMessage = document.getElementById("error_message");
+
+
+    contacto.onsubmit = function submit(e) {
+        
+        if (!contactValidator()){
+            e.preventDefault()
+        }  
+
+    }
+}
+
 
 function validation() {
     if (checkNombre(nombre.value)) {
@@ -74,23 +99,31 @@ function validation() {
 }
 
 function contactValidator() {
-    if (checkNombre(nombre.value)) {
+    if (checkNombre(nombre2.value)) {
         inputName.className += ' is-valid ';
     } else {
         inputName.className += ' is-invalid ';
         errorName.innerHTML = 'El nombre ingresado es incorrecto';
     }
-    if (checkApellido(apellido.value)) {
+    if (checkApellido(apellido2.value)) {
         inputLastname.className += ' is-valid ';
     } else {
         inputLastname.className += ' is-invalid ';
         errorLastname.innerHTML = 'El apellido ingresado es incorrecto';
     }
-    if (checkEmail(email.value)) {
+    if (checkEmail(email2.value)) {
         inputEmail.className += ' is-valid ';
     } else {
         inputEmail.className += ' is-invalid ';
         errorEmail.innerHTML = 'El email ingresado es incorrecto';
+    }
+    if (checkMensaje(message.value)) {
+        inputEmail.className += ' is-valid ';
+        return true;
+    } else {
+        inputEmail.className += ' is-invalid ';
+        errorEmail.innerHTML = 'El email ingresado es incorrecto';
+        return false;
     }
 }
 
@@ -136,7 +169,7 @@ function checkAvatar(img){
 }
 
 function checkMensaje(mensaje){
-    var regexMensaje = /^[A-Za-z0-9]{2,800}$/;
+    var regexMensaje = /^[A-Za-z0-9]{10,800}$/;
     if (regexMensaje.test(mensaje)){
         return true;
     } else return false;

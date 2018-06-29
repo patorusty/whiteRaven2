@@ -39,8 +39,8 @@
                                     <td>{{$order->date}}</td>
                                     <td>
                                         <ul>
-                                            @foreach($product as $value)
-                                            <li>{{$value}}</li>
+                                            @foreach($order->productos as $gorra)
+                                                <li>{{$gorra['name']}}</li>
                                             @endforeach
                                         </ul>
                                     </td>

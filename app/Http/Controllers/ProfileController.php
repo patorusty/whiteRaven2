@@ -17,21 +17,31 @@ class ProfileController extends Controller
         ->where('user_id', $id)
         ->get();
 
-        $productos = $orders->pluck('product_id');
+        $productos = [];
+        foreach ($orders as $order) {
+            $productos = $orders->pluck('product_id');
+        }
         foreach ($productos as $key => $value) {
-            $product = explode(", ", $value);
+            $product[] = explode(" , ", $value);
+        }
+
+        foreach($product as $index =>  $unidad) {
+            $orders[$index]->productos = [];
+
+            foreach ($unidad as $key => $productoFinal) {
+                $orders[$index]->productos[] = \App\Product::find($productoFinal);
             }
+        }
 
         if (!auth()->check()){
             return redirect()->route('login');
         } elseif($orders == null && $product == null){
-            $orders = ('');
-            $product = ('');
+        
             return view('profile', ['users' => Auth::user()]);
         }else{
             return view('profile', ['users' => Auth::user(),
                                     'orders' => $orders,
-                                    'product' => $product,
+                                    'product' => isset($product) ? $product : null,
             ]);
         }
     }

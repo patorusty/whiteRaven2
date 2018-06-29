@@ -589,6 +589,9 @@ a:hover {
 .bg-color-g {
     background-color: #22A100 !important;
 }
+.precio::before {
+    content: " $ ";
+}
 
 @media (max-width: 992px) {
     .active {

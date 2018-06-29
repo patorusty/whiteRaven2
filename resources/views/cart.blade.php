@@ -1,8 +1,11 @@
 @extends('layouts.layout')
 @section('title','Carrito')
 @section('content')
-    <table>
-            <thead>
+    <div class="d-flex flex-column align-items-center">
+    <h1 class="mt-3">CART</h1>
+    <div class="col-md-8">
+        <table class="table table-hover mt-3">
+            <thead class="thead-dark">
                 <tr>
                     <th>Item</th>
                     <th>Codigo Producto</th>
@@ -27,13 +30,14 @@
                     </tr>
                 @endforeach
     </table>
-    <div>
+   
                 Precio Final: ${{$final}}
-    </div>
                 <form id="orders" name="orders" method="POST" action="{{route('order.store')}}" >
                         {{ csrf_field() }}  
-                <input type= 'text' style="visibility:hidden" name='product_id' value='{{$productlist}}'>
-                        <input type= 'text' style="visibility:hidden" name='price' value='{{$final}}'>
-                        <button  class="boton-inicio"  type="submit" >COMPRAR</button>
+                <input type= 'text' type="hidden" style="display:none" name='product_id' value='{{$productlist}}'>
+                        <input type= 'text'  style="display:none" type="hidden" width="0px" height="0px" name='price' value='{{$final}}'>
+                        <button  class="btn btn-block btn-dark"  type="submit" >COMPRAR</button>
                 </form>
+            </div>
+        </div>
 @endsection

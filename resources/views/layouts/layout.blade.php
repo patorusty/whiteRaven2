@@ -65,7 +65,7 @@
                                     <a href="{{ route('cart.index') }}">
                                         <i class="fas fa-shopping-cart user"></i>
                                         @if (session('carts') && session('carts')->count() > 0)
-                                            ({{session('carts')->count()}})
+                                            <i class="user">({{session('carts')->count()}})</i>
                                         @endif
                                     </a>        
                             </a>
@@ -78,15 +78,21 @@
 @yield('content')
 </div>
         <footer class="footer">
-                <a href="" class="socialmedia">
+                <div class="d-flex flex-column align-items-center">
+                    <div>
+                <a href="" class="">
                     <i class="fab fa-facebook-square fa-2x socialmedia"></i>
                 </a>
-                <a href="" class="socialmedia">
+                <a href="" class="">
                     <i class="fab fa-instagram fa-2x socialmedia"></i>
                 </a>
+            </div>
                 <p class="texto-footer">Copyright® Sarbros Desing</p>
+                <div>
                 <div id="" class="d-inline texto-footer">Usuarios registrados:</div>
                 <div id="contador" class="d-inline texto-footer"></div>
+            </div>
+        </div>
         </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

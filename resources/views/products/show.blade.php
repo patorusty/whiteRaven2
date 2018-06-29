@@ -11,19 +11,19 @@
     <div class="row mt-3 mx-auto">
         <div class="col-md-6">
             <div class="col-md-12 d-flex justify-content-center">
-                <img src='{{asset('images/' . $product->img)}}' width="300" alt="" class="img-product rounded" alt="">
+                <img src='{{asset('images/' . $product->img)}}'  alt="" class="img-product rounded" alt="">
             </div>
         </div>
         <div class="col-md-6">
     <form id="carts" name="carts" method="POST" action="{{route('cart.store')}}" >
         {{ csrf_field() }} 
-            <div class="col-md-9 border border-light">
+            <div class="col-md-9 border border-dark">
                 <h3 class="text-product">
                     <input type= 'text' style="visibility:hidden" name='name' value='{{$product->name}}'> {{$product->name}}
                 </h3>
                 <h3 class="text-product" >
-                    <input type= 'number' style="visibility:hidden" name='price' value='{{$product->price}}'>$ {{$product->price}}
-                    <input type= 'number' style="visibility:hidden" name='code' value='{{$product->code}}'>
+                    <input type= 'number' type="hidden" style="display:none" name='price' value='{{$product->price}}'>$ {{$product->price}}
+                    <input type= 'number' type="hidden" style="display:none" name='code' value='{{$product->code}}'>
                 </h3>
                 <div class="row mt-6 mt-1">
                     <div class="col-sm-6">

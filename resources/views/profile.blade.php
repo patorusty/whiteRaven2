@@ -26,7 +26,30 @@
                 <p>ORDENES</p>
             </div>
         <div class="miperfil">
-            
+                <table class="egt table table-striped table-hover" border=”1″>
+                    <thead class="thead-dark">
+                        <tr>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Productos</th>
+                                <th scope="col">Precio</th>                     
+                        </tr>
+                    </thead>
+                    <tbody>
+                            @foreach ($orders->all() as $order)
+                            <tr>
+                                    <td>{{$order->date}}</td>
+                                    <td>
+                                        <ul>
+                                            @foreach($product as $value)
+                                            <li>{{$value}}</li>
+                                            @endforeach
+                                        </ul>
+                                    </td>
+                                    <td>{{$order->price}}</td>
+                            </tr>
+                            @endforeach
+                    </tbody>
+
         </div>
     </div>
 </div>

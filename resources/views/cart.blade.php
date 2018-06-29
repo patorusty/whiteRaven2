@@ -28,15 +28,12 @@
                 @endforeach
     </table>
     <div>
-                Precio Final: $
-            @foreach($carts as $key => $value)
-                {{$value['totalprice']}}
-            @endforeach
+                Precio Final: ${{$final}}
     </div>
                 <form id="orders" name="orders" method="POST" action="{{route('order.store')}}" >
                         {{ csrf_field() }}  
-                        <input type= 'text' style="visibility:hidden" name='product_id' value='{{$value['id']}}'>
-                        <input type= 'text' style="visibility:hidden" name='price' value='800'>
+                <input type= 'text' style="visibility:hidden" name='product_id' value='{{$productlist}}'>
+                        <input type= 'text' style="visibility:hidden" name='price' value='{{$final}}'>
                         <button  class="boton-inicio"  type="submit" >COMPRAR</button>
                 </form>
 @endsection

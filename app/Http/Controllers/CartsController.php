@@ -21,12 +21,21 @@ class CartsController extends Controller
 
     {
         $carts = session('carts');
+        $productlist = $carts->implode('code', ' , ');
+        $pricelist = $carts->implode('price', ' , ');
+
+        $precio = $carts->pluck('totalprice');
+        $final = collect($precio)->sum();
 
         if ($carts === null){
             return view('home');
         } else {
-            return view('cart', ['carts' => session('carts')]);
+            return view('cart', ['carts' => session('carts'),
+                                'productlist' => $productlist,
+                                'final' => $final
+            ]);
         }
+
     }
 
 
@@ -58,10 +67,6 @@ class CartsController extends Controller
         return redirect()->back();
 
     }
-    public function orden(){
-        dd($carts);
-    }
-
 
     /**
      * Show the form for creating a new resource.

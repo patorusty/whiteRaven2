@@ -239,7 +239,7 @@
         <div class="col-4">
         <select name="category">
             @foreach ($categories->all() as $categoria)
-            <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
+                <option value= "{{ $categoria->id }}">{{ $categoria->name }}</option>
             @endforeach
         </select>
     </div>

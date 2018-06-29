@@ -19,9 +19,7 @@
         {{ csrf_field() }} 
             <div class="col-md-9 border border-light">
                 <h3 class="text-product">
-                    <input type= 'text' style="visibility:hidden" name='name' value='{{$product->name}}'> {{$product->name}}
-                </h3>
-                <h3 class="text-product" >
+                    <input style="visibility:hidden" name='name' value='{{$product->name}}'> {{$product->name}}
                     <input type= 'number' style="visibility:hidden" name='price' value='{{$product->price}}'>$ {{$product->price}}
                     <input type= 'number' style="visibility:hidden" name='code' value='{{$product->code}}'>
                 </h3>
@@ -38,7 +36,9 @@
                 </div>
                 <button type="submit" class="btn btn-dark mt-5">Agregar al Carrito</button>
             </form>
-                <p class="text-product mt-5">{{$product->description}}</p>
+            <div>
+            Descripcion: <p class="text-product mt-5">{{$product->description}}</p>
+            </div>
         </div>
     </div>
 </div>
